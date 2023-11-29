@@ -1,0 +1,58 @@
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="usuario">
+     <select id="busquedaUsername" parameterType="String" resultType="modelo.pojo.Usuario">
+        SELECT* FROM `smartcupon`.`usuario` WHERE username = #{username}
+    </select >
+     <select id="busquedaCurp" parameterType="String" resultType="modelo.pojo.Usuario">
+        SELECT* FROM `smartcupon`.`usuario` WHERE curp = #{curp}
+    </select >  
+      <select id="login" resultType="modelo.pojo.Usuario" parameterType="map">
+        SELECT * FROM smartcupon.usuario WHERE username = #{username} AND contrasena = #{contrasena};
+    </select>
+    
+    <delete id="eliminar" parameterType = "int" >
+        DELETE FROM `smartcupon`.`usuario`
+        WHERE `idUsuario` = #{idUsuario};
+    </delete>
+    
+    <insert id="registrar" parameterType="modelo.pojo.Usuario">
+        INSERT INTO `smartcupon`.`usuario`
+    (
+    `idEmpresa`,
+    `nombre`,
+    `rol`,
+    `username`,
+    `contrasena`,
+    `curp`,
+    `correo`,
+    `apellidoP`,
+    `apellidoM`)
+    VALUES
+    (
+    #{idEmpresa},
+    #{nombre},
+    #{rol},
+    #{username},
+    #{contrasena},
+    #{curp},
+    #{correo},
+    #{apellidoP},
+    #{apellidoM});
+    </insert>
+    
+    <update id="actualizar" parameterType="modelo.pojo.Usuario">
+    UPDATE `smartcupon`.`usuario`
+    SET
+    `nombre` = #{nombre},
+    `username` = #{username},
+    `contrasena` = #{contrasena},
+    `curp` = #{curp},
+    `correo` = #{correo},
+    `apellidoP` = #{apellidoP},
+    `apellidoM` = #{apellidoM}
+    WHERE `idUsuario` = #{idUsuario};   
+    </update>
+</mapper>

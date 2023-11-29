@@ -1,0 +1,49 @@
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cliente">
+    <select id="busquedaCorreo" parameterType="String" resultType="modelo.pojo.Cliente">
+        SELECT* FROM `smartcupon`.`cliente` WHERE correo = #{correo}
+    </select >
+    <select id="login" resultType="modelo.pojo.Cliente" parameterType="map">
+        SELECT * FROM smartcupon.cliente WHERE correo = #{correo} AND contrasena = #{contrasena};
+    </select>
+     
+    <update id="actualizar" parameterType="modelo.pojo.Cliente">
+        UPDATE `smartcupon`.`cliente`
+        SET
+        `nombre` = #{nombre},
+        `apellidoM` = #{apellidoM},
+        `apellidoP` = #{apellidoP},
+        `telefono` = #{telefono},
+        `calle` = #{calle},
+        `numero` = #{numero},
+        `nacimiento` = #{nacimiento},
+        `contrasena` = #{contrasena}
+        WHERE `idCliente` = #{idCliente};
+    </update>
+    <insert id="registrar" parameterType="modelo.pojo.Cliente" >
+        INSERT INTO `smartcupon`.`cliente`
+        (`nombre`,
+        `apellidoM`,
+        `apellidoP`,
+        `telefono`,
+        `correo`,
+        `calle`,
+        `numero`,
+        `nacimiento`,
+        `contrasena`)
+        VALUES
+        (#{nombre},
+        #{apellidoM},
+        #{apellidoP},
+        #{telefono},
+        #{correo},
+        #{calle},
+        #{numero},
+        #{nacimiento},
+        #{contrasena});
+    </insert>
+    
+    
+</mapper>
