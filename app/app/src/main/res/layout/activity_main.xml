@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/editarB"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="336dp"
+        android:layout_marginBottom="664dp"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/farmaciasB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="126dp"
+        android:layout_marginBottom="29dp"
+        android:text="promociones de farmacias"
+        android:textColor="#455A64"
+        app:layout_constraintBottom_toTopOf="@+id/cafeteriasB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editarB" />
+
+    <Button
+        android:id="@+id/cafeteriasB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="34dp"
+        android:text="promociones de cafeterias"
+        android:textColor="#455A64"
+        app:layout_constraintBottom_toTopOf="@+id/ComercialB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/farmaciasB" />
+
+    <Button
+        android:id="@+id/ComercialB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:layout_marginBottom="116dp"
+        android:text="Promociones de Centro comerciales"
+        android:textColor="#455A64"
+        app:layout_constraintBottom_toTopOf="@+id/irCupones"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cafeteriasB" />
+
+    <Button
+        android:id="@+id/irCupones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="99dp"
+        android:layout_marginEnd="129dp"
+        android:layout_marginBottom="136dp"
+        android:text="canjear cupones"
+        android:textColor="#455A64"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ComercialB" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

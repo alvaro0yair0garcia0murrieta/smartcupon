@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="232.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.fxml.FXMLUsuariosController">
+    <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="650.0" spacing="10">
+         <children>
+            <Label text="busqueda" />
+            <TextField fx:id="busquedaField" />
+            <Button mnemonicParsing="false" onAction="#limpiar" text="cancelar" />
+         </children>
+      </HBox>
+       
+             <TableView fx:id="tableView" layoutX="1.0" layoutY="25.0" prefHeight="172.0" prefWidth="749.0">
+           <columns>
+            <TableColumn fx:id="nombreC" prefWidth="75.0" text="nombre" />
+            <TableColumn fx:id="apellidoPC" prefWidth="75.0" text="apellido Paterno" />
+            <TableColumn fx:id="apelidoMC" prefWidth="75.0" text="apellido Materno" />
+            <TableColumn fx:id="usernameC" prefWidth="75.0" text="usuario" />
+            <TableColumn fx:id="curpC" prefWidth="75.0" text="curp" />
+            <TableColumn fx:id="correoC" prefWidth="75.0" text="correo" />
+            <TableColumn fx:id="rolC" prefWidth="75.0" text="rol" />
+
+           </columns>
+       </TableView>
+      <HBox alignment="CENTER_LEFT" layoutX="1.0" layoutY="197.0" prefHeight="37.0" prefWidth="225.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#irARegistrar" text="Registrar" />
+            <Button mnemonicParsing="false" onAction="#irAModificar" text="Actualizar" />
+            <Button mnemonicParsing="false" onAction="#eliminar" text="eliminar" />
+         </children>
+      </HBox>
+   </children>
+ </AnchorPane>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="145.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLPromoSucuController">
+   <children>
+      <CheckBox fx:id="check" layoutX="71.0" layoutY="73.0" mnemonicParsing="false" onAction="#seleccicon" text="hacer disponible en todas la sucursales " />
+      <ComboBox fx:id="sucursalcb" layoutX="106.0" layoutY="38.0" prefWidth="150.0" promptText="EMPRESA" />
+      <Label layoutX="113.0" layoutY="14.0" text=" promocion en sucursales" />
+      <Button layoutX="160.0" layoutY="100.0" mnemonicParsing="false" onAction="#realizar" text="Asignar" />
+   </children>
+</AnchorPane>

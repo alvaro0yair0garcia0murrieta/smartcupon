@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="clienteescritorio.controladores.FXMLRegistrarSucursalController">
+    <VBox>
+    <Label text="Nombre:" />
+    <TextField fx:id="nombreField" />
+
+    <Label text="Calle:" />
+    <TextField fx:id="calleField" />
+    
+    <Label text="Numero:" />
+    <TextField fx:id="numeroField" />
+
+    <Label text="Encargado:" />
+    <TextField fx:id="encargadoField" />
+      <Label text="Ciudad:" />
+      <TextField fx:id="ciudadField" />
+    
+    <Label text="Colonia:" />
+    <TextField fx:id="coloniaField" />
+
+    <Label text="Telefono:" />
+    <TextField fx:id="telefonoField" />
+
+    <Label text="Codigo Postal:" />
+    <TextField fx:id="codigoPField" />
+
+    <Label text="Latitut:" />
+    <TextField fx:id="latitudField" />
+ 
+    <Label text="Longitud:" />
+    <TextField fx:id="longitudField" />
+
+
+    <Button onAction="#registrar" text="Registrar" />
+    
+    </VBox>
+   <ComboBox fx:id="empresaCombo" layoutX="225.0" layoutY="131.0" prefWidth="150.0" /> 
+</AnchorPane>

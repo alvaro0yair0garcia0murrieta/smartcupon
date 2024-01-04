@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="381.0" prefWidth="218.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLRegistroPromocionController">
+<children>     
+    <VBox prefHeight="369.0" prefWidth="214.0">
+          <children>
+          <Label text="Nombre:" />
+          <TextField fx:id="nombreField" />
+          
+            <Label text="Empresa: " />
+            <ComboBox fx:id="empresaCombo" prefWidth="150.0" />
+      
+                <Label text="Descripcion" />
+          <TextField fx:id="descripField" />
+            <Label text="categoria" />
+            <ComboBox  onAction="#tipos" fx:id="categoriaCombo" prefWidth="150.0" />
+            <Label text="tipo" />
+            <HBox prefHeight="21.0" prefWidth="214.0">
+               <children>
+                  <RadioButton fx:id="descRadio" mnemonicParsing="false" text="descuento (%)">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="tipo" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rebRadio" mnemonicParsing="false" text="rebaja ($)" toggleGroup="$tipo" />
+               </children>
+            </HBox>
+            <TextField fx:id="tipoField" />
+      
+          <Label text="Restriccion" />
+          <TextField fx:id="RestField" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="codigo" />
+                        <TextField fx:id="codigoField" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="42.0" prefWidth="115.0">
+                     <children>
+                  
+                            <Label text="Numero de cupones" />
+                      <TextField fx:id="cuponField" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Fecha de inicio" />
+                        <DatePicker fx:id="inicioDate" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Fecha limite" />
+                        <DatePicker fx:id="liminteDate" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+      
+      
+          <Button onAction="#registrar" text="Registrar" />
+          </children>
+       
+       </VBox>
+   </children>
+</AnchorPane>

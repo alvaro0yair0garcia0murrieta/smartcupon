@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="222.0" prefWidth="178.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLLoginController">
+   <children>
+        <Label id="bienvenido" layoutX="53.0" layoutY="25.0" text="Bienvenido" />
+         <TextField fx:id="usernameField" layoutX="14.0" layoutY="52.0" />
+         <PasswordField fx:id="PasswordField" layoutX="14.0" layoutY="122.0" />
+         <Button id="boton" fx:id="btnInciarSesion" layoutX="57.0" layoutY="189.0" mnemonicParsing="false" onAction="#handleButtonAction" text="ingresar" />
+         <Label id="error" fx:id="lbErrorPersonal" layoutX="43.0" layoutY="84.0" style="-fx-text-fill: firebrick;" stylesheets="@../resources/login.css" text="nombre de usuario">
+            <font>
+               <Font size="11.0" />
+            </font>
+         </Label>
+         <Label id="error2" fx:id="lbErrorPassword" layoutX="56.0" layoutY="147.0" style="-fx-text-fill: firebrick;" text="contraseña">
+            <font>
+               <Font size="11.0" />
+            </font>
+         </Label>
+   </children>
+</AnchorPane>

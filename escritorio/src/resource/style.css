@@ -1,0 +1,39 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 1/01/2024, 05:24:55 PM
+    Author     : a-rac
+*/
+
+/* General styling for the AnchorPane */
+.AnchorPane {
+    -fx-background-color: #F5F5F5;
+}
+
+/* Styling for the ImageView elements */
+.ImageView {
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 20, 0, 0, 0);
+}
+
+.ImageView:hover {
+    -fx-opacity: 0.7;
+}
+
+/* Styling for the Label elements */
+.Label {
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+/* Specific styling for different modules */
+#empresaB, #empresaB1, #empresaB111, #empresaB1111 {
+    -fx-background-color: #FFD700;
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
