@@ -36,6 +36,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelo.DAO.PromocionDAO;
+import modelo.pojo.Mensaje;
 import modelo.pojo.Promocion;
 import modelo.pojo.Usuario;
 import utiles.Utilidades;
@@ -221,7 +222,15 @@ public class FXMLPromocionController implements Initializable,IRespuesta {
         dialogoAlertaConfirmacion.getButtonTypes().setAll(eliminarButtonType, desabilitarButtonType);
        Optional<ButtonType> respuesta= dialogoAlertaConfirmacion.showAndWait();
        if(respuesta.get()== eliminarButtonType){
-           PromocionDAO.eliminar(seleccion.getIdPromocion());
+            
+           Mensaje msj = PromocionDAO.eliminar(seleccion.getIdPromocion());
+            notificarGuardado();
+if(!msj.getError()){
+    Utilidades.alerta("Promocion eliminada", msj.getContenido(), Alert.AlertType.INFORMATION);
+ 
+}else{
+    Utilidades.alerta("error de eliminacion", msj.getContenido(), Alert.AlertType.ERROR);
+}
           
        }else if (respuesta.get()== desabilitarButtonType) {
            seleccion.setEstatus("DESACTIVADO");
@@ -273,11 +282,7 @@ public class FXMLPromocionController implements Initializable,IRespuesta {
                         if(itemBusqueda.getFechaInicio().toLowerCase().contains(lowerFilter)){
                             return true;
                         }
-                        if(itemBusqueda.getFechaFin().toLowerCase().contains(lowerFilter)){
-                            return true;
-                        }
-                        
-                        return false;    
+                        return itemBusqueda.getFechaFin().toLowerCase().contains(lowerFilter);    
                     });
                 }
 
