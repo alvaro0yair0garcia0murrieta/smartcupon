@@ -61,22 +61,13 @@ public class ConexionHTTP
     return respuesta;
  }  
  
- public static CodigoHTTP peticionDELETE(String url, String parametros){
+ public static CodigoHTTP peticionDELETE(String url){
      CodigoHTTP respuesta =new CodigoHTTP();
 
     try{
         URL urlServicio= new URL(url);
         HttpURLConnection conexionhttp = (HttpURLConnection)urlServicio.openConnection();
         conexionhttp.setRequestMethod("DELETE");
-        conexionhttp.setDoOutput(true);
-        
-//datos de peticion
-        OutputStream os =conexionhttp.getOutputStream();
-        os.write(parametros.getBytes());
-        os.flush();
-        os.close();
- //termina escritura
- 
         int codigoRespuesta  = conexionhttp.getResponseCode();
         respuesta.setCodigoRespuesta(codigoRespuesta);
         if( codigoRespuesta == HttpURLConnection.HTTP_OK){

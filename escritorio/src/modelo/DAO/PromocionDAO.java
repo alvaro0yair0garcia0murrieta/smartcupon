@@ -101,8 +101,8 @@ public class PromocionDAO {
     public static Mensaje eliminar(int id){
         Mensaje mensaje = new Mensaje();
         
-       String url = Constantes.URI_WS_Promocion_E;
-     CodigoHTTP  respuesta= ConexionHTTP.peticionDELETE(url,id+"");
+       String url = Constantes.URI_WS_Promocion_E+ id;
+     CodigoHTTP  respuesta= ConexionHTTP.peticionDELETE(url);
         if (respuesta.getCodigoRespuesta()==HttpURLConnection.HTTP_OK ) {
            Gson gson =new  Gson();
            mensaje =gson.fromJson(respuesta.getContenido(),Mensaje.class);
