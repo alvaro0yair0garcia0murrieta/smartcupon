@@ -19,6 +19,7 @@ import modelo.dao.EmpresaDAO;
 import modelo.pojo.Empresa;
 import modelo.pojo.Respuesta;
 import com.google.gson.Gson;
+import java.util.List;
 import javax.ws.rs.DELETE;
 
 /**
@@ -44,7 +45,13 @@ public class EmpresaResource {
         }
          return EmpresaDAO.registrar(empresa);
     }
-    
+     @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("empresas")
+    public List<Empresa> lista(){
+        List<Empresa> empresas= EmpresaDAO.empresas();
+        return empresas;   
+    }
     
     @PUT
     @Path("actualizar")
@@ -98,6 +105,15 @@ public class EmpresaResource {
         }
        
     }
+    @GET 
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Empresa obtenerEmpresa(@PathParam("id") int idEmpresa){
+        Empresa empresa= EmpresaDAO.consegirEmpresa(idEmpresa);
+        return empresa;
+    }
+
+  
     
     
 }

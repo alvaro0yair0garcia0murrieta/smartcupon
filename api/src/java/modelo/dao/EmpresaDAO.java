@@ -5,16 +5,30 @@
  */
 package modelo.dao;
 
+import com.google.gson.Gson;
 import modelo.pojo.Empresa;
 import modelo.pojo.Respuesta;
 import mybatis.MyBatisUtil;
 import org.apache.ibatis.session.SqlSession;
+import java.util.List;
 
 /**
  *
  * @author a-rac
  */
 public class EmpresaDAO {
+      public static List<Empresa> empresas() {
+     List<Empresa> empresas = null;
+        SqlSession conexionDB = MyBatisUtil.getSession();
+        try {
+            empresas = conexionDB.selectList("empresas");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            conexionDB.close();
+        }
+        return empresas;
+    }
 
     public static Respuesta subirLogo(int id, byte[] logo) {
     Respuesta msj= new Respuesta();
@@ -150,5 +164,11 @@ public class EmpresaDAO {
                      return respuesta;
                 
     }
-    
+
+    public static Empresa consegirEmpresa(int idEmpresa) {
+    Empresa e = new Empresa();
+        SqlSession conexionDB = MyBatisUtil.getSession(); 
+             e = conexionDB.selectOne("empresa.porId",idEmpresa);        
+           return e;
+    }
 }

@@ -6,10 +6,12 @@
 package recursosWeb;
 
 import com.google.gson.Gson;
+import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -19,6 +21,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import modelo.dao.ClienteDAO;
 import modelo.dao.PromocionDAO;
 import modelo.pojo.Promocion;
 import modelo.pojo.Respuesta;
@@ -59,6 +62,23 @@ public class PromocionResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public void putJson(String content) {
     }
+     @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("promociones")
+    public List<Promocion> lista(){
+        List<Promocion> promociones= PromocionDAO.promociones();
+        return promociones;   
+    }
+    
+  
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("promociones/empresa/{idEmpresa}")
+    public List<Promocion> listaEmpresa(@PathParam("idEmpresa" )int idEmpresa){
+        List<Promocion> sucursales= PromocionDAO.sucursales(idEmpresa);
+        return sucursales;   
+    }
+    
 @POST
     @Path("registrar")
     @Produces
@@ -125,6 +145,20 @@ public class PromocionResource {
     public String canjear(@PathParam("codigo") String codigo){
     
         return PromocionDAO.canje(codigo);
+    }
+    
+      @POST
+    @Produces
+    @Path("promo-sucu")
+    public Respuesta insertar(@FormParam("idPromocion") Integer promocion,@FormParam("idSucursal") Integer sucursal){
+       return PromocionDAO.insertarPromoSucu(promocion,sucursal); 
+    }
+      @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("promociones/categoria/{categoria}")
+    public List<Promocion> listaCategoria(@PathParam("categoria")String categoria){
+        List<Promocion> promociones= PromocionDAO.promociones(categoria);
+        return promociones;   
     }
     }
 

@@ -9,10 +9,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import java.net.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="405.0" prefWidth="214.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLRegistrarSucursalController">
    <children>
-       <VBox prefHeight="401.0" prefWidth="214.0">
+       <VBox prefHeight="622.0" prefWidth="292.0" styleClass="form">
           <children>
           <Label text="Nombre:" />
           <TextField fx:id="nombreField" />
@@ -30,10 +31,10 @@
                       <TextField fx:id="calleField" prefHeight="25.0" prefWidth="187.0" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="42.0" prefWidth="67.0">
+                  <VBox prefHeight="62.0" prefWidth="103.0">
                      <children>
                       
-                      <Label prefHeight="17.0" prefWidth="48.0" text="Numero:" />
+                      <Label prefHeight="25.0" prefWidth="97.0" text="Numero:" />
                       <TextField fx:id="numeroField" prefHeight="25.0" prefWidth="78.0" />
                      </children>
                   </VBox>
@@ -41,7 +42,7 @@
             </HBox>
             <HBox prefHeight="25.0" prefWidth="477.0">
                <children>
-                  <VBox prefHeight="42.0" prefWidth="336.0">
+                  <VBox prefHeight="62.0" prefWidth="368.0">
                      <children>
                         <Label text="Ciudad:" />
                         <TextField fx:id="ciudadField" prefHeight="25.0" prefWidth="81.0" />
@@ -69,4 +70,7 @@
        
        </VBox>
    </children> 
+    <stylesheets>
+        <URL value="@formularios.css" />
+    </stylesheets>
 </AnchorPane>

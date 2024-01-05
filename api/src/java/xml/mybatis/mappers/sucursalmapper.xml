@@ -3,20 +3,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="sucursal">
+    <select id="sucursales" resultType="modelo.pojo.Sucursal">
+        SELECT* FROM sucursal;
+    </select>
+    <select id="sucursalesPromo" parameterType="int"  resultType="modelo.pojo.Sucursal">
+       SELECT nombre,calle,numero,codigoP,telefono FROM promo_sucu INNER JOIN sucursal ON sucursal.idSucursal= promo_sucu.idSucu where idPromo =#{id} 
+    </select>
+    <select id="sucursalesE"  parameterType="int" resultType="modelo.pojo.Sucursal">
+        SELECT* FROM sucursal where idEmpresa=#{idEmpresa};
+    </select>
      <select id ="busquedaPromocion" parameterType="int" resultType="modelo.pojo.Sucursal">
-       SELECT m.nombre
-        FROM  sucursal s INNER JOIN promocion m 
-        ON s.idSucursal = m.idSurcursal
-        WHERE s.idSucursal = #{idSucursal};
+      SELECT* FROM promo_sucu WHERE idSucu=#{id}
     </select>
     <delete id="eliminar" parameterType = "int" >
-    DELETE FROM `smartcupon`.`sucursal`
+    DELETE FROM  `sucursal`
     WHERE `idSucursal` = #{idSucursal}
 
     </delete>
     
     <insert id="registrar" parameterType="modelo.pojo.Sucursal">
-    INSERT INTO `smartcupon`.`sucursal`
+    INSERT INTO  `sucursal`
     (
     `nombre`,
     `calle`,
@@ -45,7 +51,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </insert>
     
     <update id="actualizar" parameterType="modelo.pojo.Sucursal">
-    UPDATE `smartcupon`.`sucursal`
+    UPDATE  `sucursal`
     SET
     `nombre` = #{nombre},
     `calle` = #{calle},

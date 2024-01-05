@@ -5,8 +5,9 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import java.net.*?>
 
-<VBox prefHeight="398.0" prefWidth="187.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLRegistrarUsuarioController">
+<VBox prefHeight="617.0" prefWidth="229.0" styleClass="form" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLRegistrarUsuarioController">
     <children>
       <Label text="nombre" />
       <TextField fx:id="nombreField" />
@@ -37,4 +38,7 @@
             <ComboBox fx:id="empresaCombo" prefWidth="150.0" />
       <Button mnemonicParsing="false" onAction="#registrari" text="registrar" />
    </children>
+    <stylesheets>
+        <URL value="@formularios.css" />
+    </stylesheets>
 </VBox>

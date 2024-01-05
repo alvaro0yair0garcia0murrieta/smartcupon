@@ -6,6 +6,8 @@
 package modelo.dao;
 
 import java.util.HashMap;
+import java.util.List;
+import modelo.pojo.Usuario;
 import modelo.pojo.Respuesta;
 import modelo.pojo.Usuario;
 import mybatis.MyBatisUtil;
@@ -16,6 +18,18 @@ import org.apache.ibatis.session.SqlSession;
  * @author a-rac
  */
 public class UsuarioDAO {
+    public static List<Usuario> usuarios() {
+     List<Usuario> usuarios = null;
+        SqlSession conexionDB = MyBatisUtil.getSession();
+        try {
+            usuarios = conexionDB.selectList("usuarios");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            conexionDB.close();
+        }
+        return usuarios;
+    }
  public  static Respuesta registrar(Usuario usuario){
         Respuesta msj= new Respuesta();
         msj.setError(true);
@@ -25,10 +39,10 @@ public class UsuarioDAO {
             msj.setContenido("NO CONEXION A DB");
             
    }else if(conexionDB.selectOne("usuario.busquedaCurp",usuario.getCurp()) != null ){
-            msj.setContenido("erorr: alguen ya registrado con el mismo curp");
+            msj.setContenido("error: alguen ya registrado con el mismo curp");
             
    }else if(conexionDB.selectOne("usuario.busquedaUsername",usuario.getUsername())!= null ){
-            msj.setContenido("erorr: alguen ya registrado con el mismo username");
+            msj.setContenido("error: alguen ya registrado con el mismo username");
             
    }else{
             try {
@@ -131,4 +145,5 @@ public class UsuarioDAO {
         }
         return respuesta;
     }
+      
 }

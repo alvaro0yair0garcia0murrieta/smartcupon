@@ -5,12 +5,16 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import java.net.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="150.0" prefWidth="224.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLCanjeController">
+<AnchorPane id="AnchorPane" prefHeight="154.0" prefWidth="243.0" styleClass="form" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLCanjeController">
    <children>
       <TextField fx:id="codigoField" layoutX="34.0" layoutY="39.0" />
-      <Button layoutX="87.0" layoutY="75.0" mnemonicParsing="false" onAction="#canjear" text="Canjear" />
-      <Label layoutX="95.0" layoutY="14.0" prefHeight="17.0" prefWidth="35.0" text="canje" />
-      <Label fx:id="estado" layoutX="96.0" layoutY="119.0" prefHeight="17.0" prefWidth="52.0" text="se canjeo" />
+      <Button layoutX="87.0" layoutY="84.0" mnemonicParsing="false" onAction="#canjear" text="Canjear" />
+      <Label layoutX="38.0" layoutY="14.0" prefHeight="25.0" prefWidth="174.0" text="introdusca el codigo " />
+      <Label fx:id="estado" layoutX="38.0" layoutY="140.0" prefHeight="25.0" prefWidth="200.0" text="se ha canjeado con exito" />
    </children>
+    <stylesheets>
+        <URL value="@formularios.css" />
+    </stylesheets>
 </AnchorPane>

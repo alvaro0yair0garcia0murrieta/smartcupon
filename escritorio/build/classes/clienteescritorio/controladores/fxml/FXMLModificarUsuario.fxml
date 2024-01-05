@@ -5,8 +5,9 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import java.net.*?>
 
-<VBox prefHeight="311.0" prefWidth="187.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLModificarUsuarioController">
+<VBox prefHeight="311.0" prefWidth="187.0" styleClass="form" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLModificarUsuarioController">
    <children>
       <Label text="nombre" />
       <TextField fx:id="nombreField" />
@@ -24,4 +25,7 @@
       <TextField fx:id="contrasenafield" />
       <Button mnemonicParsing="false" onAction="#modificar" text="modificar" />
    </children>
+   <stylesheets>
+        <URL value="@formularios.css" />
+    </stylesheets>
 </VBox>

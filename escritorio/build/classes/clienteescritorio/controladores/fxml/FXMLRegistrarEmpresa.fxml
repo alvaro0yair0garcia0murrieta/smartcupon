@@ -7,8 +7,9 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import java.net.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="222.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLRegistrarEmpresaController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="306.0" styleClass="form" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLRegistrarEmpresaController">
    <children>
       <Label text="nombre" />
       <TextField fx:id="tfNombre" />
@@ -18,7 +19,7 @@
       <TextField fx:id="tfRep" />
       <Label text="RFC" />
       <TextField fx:id="tfRFC" />
-      <HBox prefHeight="42.0" prefWidth="241.0">
+      <HBox prefHeight="62.0" prefWidth="286.0">
          <children>
             <VBox prefHeight="42.0" prefWidth="192.0">
                <children>
@@ -28,7 +29,7 @@
             </VBox>
             <VBox prefHeight="42.0" prefWidth="92.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="48.0" text="Numero:" />
+                  <Label prefHeight="25.0" prefWidth="99.0" text="Numero:" />
                   <TextField fx:id="tfnumero" prefHeight="25.0" prefWidth="140.0" />
                </children>
             </VBox>
@@ -42,7 +43,7 @@
                   <TextField fx:id="tfciudad" prefHeight="25.0" prefWidth="81.0" />
                </children>
             </VBox>
-            <VBox prefHeight="42.0" prefWidth="84.0">
+            <VBox prefHeight="62.0" prefWidth="131.0">
                <children>
                   <Label text="Colonia:" />
                   <TextField fx:id="tfcolonia" prefHeight="25.0" prefWidth="263.0" />
@@ -58,4 +59,7 @@
       <TextField fx:id="tftel" />
       <Button alignment="TOP_LEFT" contentDisplay="TOP" mnemonicParsing="false" onAction="#registrar" text="registrar" />
    </children>
+    <stylesheets>
+        <URL value="@formularios.css" />
+    </stylesheets>
 </VBox>

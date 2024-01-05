@@ -6,6 +6,7 @@
 package recursosWeb;
 
 import com.google.gson.Gson;
+import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -20,7 +21,9 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import modelo.dao.SucursalDAO;
+import modelo.dao.SucursalDAO;
 import modelo.pojo.Respuesta;
+import modelo.pojo.Sucursal;
 import modelo.pojo.Sucursal;
 
 /**
@@ -39,7 +42,21 @@ Gson gson = new Gson();
      */
     public SucursalResource() {
     }
-
+     @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("sucursales")
+    public List<Sucursal> lista(){
+        List<Sucursal> sucursales= SucursalDAO.sucursales();
+        return sucursales;   
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("sucursales/empresa/{idEmpresa}")
+    public List<Sucursal> listaEmpresa(@PathParam("idEmpresa" )int id){
+        List<Sucursal> sucursales= SucursalDAO.sucursales(id);
+        return sucursales;   
+    }
     /**
      * Retrieves representation of an instance of recursosWeb.SucursalResource
      * @return an instance of java.lang.String
@@ -64,11 +81,11 @@ Gson gson = new Gson();
     @Path("registrar")
     @Produces
     public Respuesta registrar(String json){
-         Sucursal sucursal = gson.fromJson(json,  Sucursal.class);
-         if (sucursal == null) {
+         Sucursal sucursales = gson.fromJson(json,  Sucursal.class);
+         if (sucursales == null) {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
-         return  SucursalDAO.registrar(sucursal);
+         return  SucursalDAO.registrar(sucursales);
     }
     
     
@@ -77,10 +94,10 @@ Gson gson = new Gson();
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Respuesta actualizar(String json){
-         Sucursal sucursal= gson.fromJson(json,  Sucursal.class);
+         Sucursal sucursales= gson.fromJson(json,  Sucursal.class);
         
-        if (sucursal != null) {
-            return  SucursalDAO.modificar(sucursal);
+        if (sucursales != null) {
+            return  SucursalDAO.modificar(sucursales);
         }
         return null;   
     }
@@ -97,4 +114,13 @@ Gson gson = new Gson();
         }
      
     }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("promocion/{id}")
+    public List<Sucursal> listaPromos(@PathParam("id" )int id){
+        List<Sucursal> sucursales= SucursalDAO.sucursalesPromo(id);
+        return sucursales;   
+    }
 }
+

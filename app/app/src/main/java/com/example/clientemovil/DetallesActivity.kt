@@ -1,5 +1,6 @@
 package com.example.clientemovil
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
@@ -44,15 +45,16 @@ class DetallesActivity : AppCompatActivity() {
         promocion = gson.fromJson(json, Promocion::class.java)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun cargarInfo() {
-        binding.textViewCodigo.setText(promocion.codigo)
-        binding.textViewDescripcion.setText(promocion.descripcion)
-        binding.textViewNombre.setText(promocion.nombre)
-        binding.textViewInicio.setText(promocion.fechaInicio)
-        binding.textViewVigencia.setText(promocion.fechaFin)
-        binding.textViewRestriccion.setText(promocion.restriccion)
-        binding.textViewTipo.setText(promocion.tipo)
-        binding.textViewCupones.setText(promocion.cuponesMax.toString())
+        binding.textViewCodigo.setText("codigo de cupon: "+promocion.codigo)
+        binding.textViewDescripcion.setText("descripcion: "+promocion.descripcion)
+        binding.textViewNombre.setText("nombre: "+promocion.nombre)
+        binding.textViewInicio.setText("fecha de lanzamiento: "+promocion.fechaInicio)
+        binding.textViewVigencia.setText("vigencia: "+ promocion.fechaFin)
+        binding.textViewRestriccion.setText("restricciones: "+ promocion.restriccion)
+        binding.textViewTipo.setText("tipo: "+promocion.tipo)
+        binding.textViewCupones.setText("cupones disponible: "+promocion.cuponesMax.toString())
     }
 
     private fun cargarImagen(idPromocion : Int){

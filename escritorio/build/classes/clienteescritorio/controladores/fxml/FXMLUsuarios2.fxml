@@ -5,18 +5,19 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import java.net.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLUsuarios2Controller">
+<AnchorPane id="AnchorPane" prefHeight="272.0" prefWidth="531.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="clienteescritorio.controladores.FXMLUsuarios2Controller">
      <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="650.0" spacing="10">
+      <HBox alignment="CENTER_LEFT" prefHeight="59.0" prefWidth="528.0" spacing="10" styleClass="search-bar">
          <children>
             <Label text="busqueda" />
-            <TextField fx:id="busquedaField" />
+            <TextField fx:id="busquedaField" styleClass="search-field" />
             <Button mnemonicParsing="false" onAction="#limpiar" text="cancelar" />
          </children>
       </HBox>
        
-             <TableView fx:id="tableView" layoutX="1.0" layoutY="25.0" prefHeight="172.0" prefWidth="749.0">
+             <TableView fx:id="tableView" layoutX="1.0" layoutY="59.0" prefHeight="172.0" prefWidth="528.0" styleClass="table">
            <columns>
             <TableColumn fx:id="nombreC" prefWidth="75.0" text="nombre" />
             <TableColumn fx:id="apellidoPC" prefWidth="75.0" text="apellido Paterno" />
@@ -28,7 +29,7 @@
 
            </columns>
        </TableView>
-      <HBox alignment="CENTER_LEFT" layoutX="1.0" layoutY="197.0" prefHeight="37.0" prefWidth="225.0" spacing="10.0">
+      <HBox alignment="CENTER_LEFT" layoutX="1.0" layoutY="231.0" prefHeight="59.0" prefWidth="528.0" spacing="10.0" styleClass="button-bar">
          <children>
             <Button mnemonicParsing="false" onAction="#irARegistrar" text="Registrar" />
             <Button mnemonicParsing="false" onAction="#irAModificar" text="Actualizar" />
@@ -36,4 +37,7 @@
          </children>
       </HBox>
    </children>
+     <stylesheets>
+        <URL value="@tablas.css" />
+    </stylesheets>
 </AnchorPane>

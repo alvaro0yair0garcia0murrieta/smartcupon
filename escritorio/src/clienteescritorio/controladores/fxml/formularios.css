@@ -1,0 +1,51 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 5/01/2024, 12:38:58 AM
+    Author     : a-rac
+*/.root {
+    -fx-font-family: "Arial";
+    -fx-background-color: #F5F5F5;
+}
+
+.form {
+    -fx-padding: 20px;
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #3F51B5;
+    -fx-border-radius: 5px;
+}
+
+.form .label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3F51B5;
+}
+
+.form .text-field,
+.form .combo-box {
+    -fx-font-size: 16px;
+}
+
+.form .radio-button {
+    -fx-font-size: 14px;
+    -fx-text-fill: #3F51B5;
+}
+
+.form .button {
+    -fx-background-color: #FF4081;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+}
+
+.image-view {
+    -fx-border-color: #3F51B5;
+    -fx-border-radius: 5px;
+}
+.check-box {
+    -fx-font-size: 14px;
+    -fx-text-fill: #3F51B5;
+}
+
+

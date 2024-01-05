@@ -1,89 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:layout_height="match_parent"
     tools:context=".DetallesActivity">
 
-    <TextView
-        android:id="@+id/textViewNombre"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView"
-        android:textSize="48sp" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        tools:srcCompat="@tools:sample/avatars"
-        android:textSize="48sp"/>
+        <TextView
+            android:id="@+id/textViewNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/textViewDescripcion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView"
-        android:textSize="48sp"/>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/avatars"/>
 
-    <TextView
-        android:id="@+id/textViewVigencia"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView"
-        android:textSize="48sp"/>
+        <TextView
+            android:id="@+id/textViewDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textSize="24sp"/>
 
-    <TextView
-        android:id="@+id/textViewInicio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView"
-        android:textSize="48sp"/>
+        <TextView
+            android:id="@+id/textViewVigencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textSize="24sp"/>
 
-    <TextView
-        android:id="@+id/textViewRestriccion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView"
-        android:textSize="48sp"/>
+        <TextView
+            android:id="@+id/textViewInicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textSize="24sp"/>
 
-    <TextView
-        android:id="@+id/textViewTipo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView"
-        android:textSize="48sp"/>
+        <TextView
+            android:id="@+id/textViewRestriccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textSize="24sp"/>
 
-    <TextView
-        android:id="@+id/textViewCupones"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView" />
-    <TextView
-        android:id="@+id/textViewCodigo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView"
-        android:textSize="48sp"/>
+        <TextView
+            android:id="@+id/textViewTipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textSize="24sp"/>
 
-    <Button
-        android:id="@+id/bottonSucursales"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="lista de sucursales"
-        android:textColor="#455A64"
-        />
-</LinearLayout>
+        <TextView
+            android:id="@+id/textViewCupones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textSize="24sp"/>
+        <TextView
+            android:id="@+id/textViewCodigo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textSize="24sp"/>
+
+
+        <Button
+            android:id="@+id/bottonSucursales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="lista de sucursales"
+            android:textColor="#FFFFFF"
+            android:background="#3F51B5" />
+    </LinearLayout>
+</ScrollView>

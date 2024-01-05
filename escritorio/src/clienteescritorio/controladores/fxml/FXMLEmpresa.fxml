@@ -10,18 +10,19 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import java.net.*?>
 
-<VBox prefHeight="236.0" prefWidth="817.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLEmpresaController">
+<VBox prefHeight="289.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLEmpresaController">
    <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="650.0" spacing="10">
+      <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="650.0" spacing="10" styleClass="search-bar">
          <children>
-            <Label text="busqueda" />
-            <TextField fx:id="busquedaField" />
+            <Label styleClass="search-label" text="busqueda" />
+            <TextField fx:id="busquedaField" styleClass="search-field" />
             <Button mnemonicParsing="false" onAction="#borrarCampo" text="cancelar" />
          </children>
       </HBox>
        
-             <TableView fx:id="tableView" prefHeight="172.0" prefWidth="648.0">
+             <TableView fx:id="tableView" prefHeight="172.0" prefWidth="648.0" styleClass="table">
            <columns>
                <TableColumn fx:id="nombreC" prefWidth="54.0" text="Nombre" />
             <TableColumn fx:id="RFCC" prefWidth="75.0" text="RFC" />
@@ -36,12 +37,15 @@
                <!-- Add other columns as needed -->
            </columns>
        </TableView>
-      <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="678.0" spacing="10.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="678.0" spacing="10.0" styleClass="button-bar">
          <children>
             <Button mnemonicParsing="false" onAction="#irARegistro" text="Registrar" />
             <Button mnemonicParsing="false" onAction="#irAModificar" text="Actualizar" />
             <Button mnemonicParsing="false" onAction="#eliminaFila" text="eliminar" />
          </children>
       </HBox>
-   </children>    
+   </children>   
+     <stylesheets>
+        <URL value="@tablas.css" />
+    </stylesheets> 
 </VBox>

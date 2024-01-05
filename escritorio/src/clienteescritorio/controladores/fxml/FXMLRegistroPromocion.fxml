@@ -5,10 +5,11 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import java.net.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="381.0" prefWidth="218.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLRegistroPromocionController">
+<AnchorPane id="AnchorPane" prefHeight="598.0" prefWidth="319.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLRegistroPromocionController">
 <children>     
-    <VBox prefHeight="369.0" prefWidth="214.0">
+    <VBox prefHeight="595.0" prefWidth="316.0" styleClass="form">
           <children>
           <Label text="Nombre:" />
           <TextField fx:id="nombreField" />
@@ -19,7 +20,7 @@
                 <Label text="Descripcion" />
           <TextField fx:id="descripField" />
             <Label text="categoria" />
-            <ComboBox  onAction="#tipos" fx:id="categoriaCombo" prefWidth="150.0" />
+            <ComboBox fx:id="categoriaCombo" onAction="#tipos" prefWidth="150.0" />
             <Label text="tipo" />
             <HBox prefHeight="21.0" prefWidth="214.0">
                <children>
@@ -43,7 +44,7 @@
                         <TextField fx:id="codigoField" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="42.0" prefWidth="115.0">
+                  <VBox prefHeight="62.0" prefWidth="166.0">
                      <children>
                   
                             <Label text="Numero de cupones" />
@@ -54,13 +55,13 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox prefHeight="62.0" prefWidth="133.0">
                      <children>
                         <Label text="Fecha de inicio" />
                         <DatePicker fx:id="inicioDate" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox prefHeight="62.0" prefWidth="139.0">
                      <children>
                         <Label text="Fecha limite" />
                         <DatePicker fx:id="liminteDate" />
@@ -75,4 +76,7 @@
        
        </VBox>
    </children>
+   <stylesheets>
+        <URL value="@formularios.css" />
+    </stylesheets>
 </AnchorPane>

@@ -12,7 +12,6 @@ package modelo.pojo;
 public class Promocion {
 
     private Integer idPromocion;
-    private Integer idSurcursal;
     private byte[] imagen;
     private String imagenBase64;
     private String codigo;
@@ -25,6 +24,8 @@ public class Promocion {
     private String fechaInicio;
     private String fechaFin;
     private Integer cuponesMax;
+    private Integer idEmpresa;
+    private  String empresa;
 
     public Promocion() {
     }
@@ -45,13 +46,6 @@ public class Promocion {
         this.idPromocion = idPromocion;
     }
 
-    public Integer getIdSurcursal() {
-        return idSurcursal;
-    }
-
-    public void setIdSurcursal(Integer idSurcursal) {
-        this.idSurcursal = idSurcursal;
-    }
 
     public byte[] getImagen() {
         return imagen;
@@ -144,5 +138,21 @@ public class Promocion {
     public  boolean estatus(){
         String status = this.estatus;
         return "ACTIVO".equals(status);
+    }
+
+    public Integer getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(Integer idEmpresa) {
+        this.idEmpresa = idEmpresa;
+    }
+
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
     }
 }

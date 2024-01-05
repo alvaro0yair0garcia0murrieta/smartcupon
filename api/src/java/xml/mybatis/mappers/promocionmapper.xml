@@ -3,6 +3,60 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http  //mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="promocion">
+
+    <select id="promocionesCategoria" resultType ="modelo.pojo.Promocion" parameterType="string">
+       SELECT idPromocion,
+   categoria,
+    `codigo`,
+    p.nombre,
+    `descripcion`,
+    `restriccion`,
+          e.nombre as empresa,
+    `tipo`,
+    p.estatus,    
+    `fechaInicio`,
+    `fechaFin`,
+     e.nombre,
+    `cuponesMax`  FROM promocion p INNER JOIN empresa e ON p.idEmpresa = e.idEmpresa where categoria=#{categoria} ;
+    </select>
+    
+    <insert id= "asignar" parameterType="map">
+        INSERT INTO `promo_sucu`
+(`idPromo`,
+`idSucu`)
+VALUES
+(#{promocion},#{sucursal});
+    </insert>  
+    <select id="promociones" resultType ="modelo.pojo.Promocion">
+       SELECT idPromocion,
+    `codigo`,
+    `nombre`,
+    `descripcion`,
+    `restriccion`,
+    `categoria`,
+    `tipo`,
+    `estatus`,    
+    `fechaInicio`,
+    `fechaFin`,
+    `cuponesMax`,
+`idEmpresa`        FROM promocion;
+    </select>
+    
+      <select id="promocionesE" parameterType="int" resultType ="modelo.pojo.Promocion">
+       SELECT idPromocion,
+    `codigo`,
+    `nombre`,
+    `descripcion`,
+    `restriccion`,
+    `categoria`,
+    `tipo`,
+    `estatus`,    
+    `fechaInicio`,
+    `fechaFin`,
+    `cuponesMax`,
+     `idEmpresa`     FROM promocion where idEmpresa=#{idEmpresa};
+    </select>
+    
     <select id="busquedaCodigo" resultType="modelo.pojo.Promocion" parameterType="string" >
         select* from promocion where codigo = #{codigo}
     </select>
@@ -18,14 +72,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
     
     <delete id="eliminar" parameterType = "int" >
-    DELETE FROM `smartcupon`.`promocion` WHERE
+    DELETE FROM  `promocion` WHERE
     `idPromocion` = #{idPromocion} ;
     </delete>
     
     <insert id="registrar" parameterType="modelo.pojo.Promocion">
-    INSERT INTO `smartcupon`.`promocion`
-    (
-    `idSurcursal`,
+    INSERT INTO  `promocion`
+    (`idEmpresa`,
     `codigo`,
     `nombre`,
     `descripcion`,
@@ -38,7 +91,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     `cuponesMax`)
     VALUES
     (
-    #{idSurcursal   } ,
+        #{idEmpresa},
     #{codigo   } ,
     #{nombre   } ,
     #{descripcion   } ,
@@ -52,18 +105,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </insert>
     
     <update id="actualizar" parameterType="modelo.pojo.Promocion">
-    UPDATE `smartcupon`.`promocion`
-    SET
-    `codigo` = #{codigo   } ,
-    `nombre` = #{nombre   } ,
-    `descripcion` = #{descripcion   } ,
-    `restriccion` = #{restriccion   } ,
-    `categoria` = #{categoria   } ,
-    `tipo` = #{tipo   } ,
-    `estatus` = #{estatus   } ,
-    `fechaInicio` = #{fechaInicio   } ,
-    `fechaFin` = #{fechaFin   } ,
-    `cuponesMax` = #{cuponesMax   } 
-    WHERE `idPromocion` = #{idPromocion} ;
+  UPDATE `promocion`
+SET
+`codigo` = #{codigo},
+`nombre` = #{nombre},
+`descripcion` = #{descripcion},
+`restriccion` = #{restriccion},
+`categoria` = #{categoria},
+`tipo` = #{tipo},
+`estatus` = #{estatus},
+`fechaInicio` = #{fechaInicio},
+`fechaFin` = #{fechaFin},
+`cuponesMax` = #{cuponesMax},
+`idEmpresa` = #{idEmpresa}
+WHERE `idPromocion` = #{idPromocion}
     </update>
+    <delete id = "promocion.promosucuDelete" parameterType="int">
+        DELETE FROM `promo_sucu`
+WHERE idPromo = #{id};
+    </delete>
 </mapper>

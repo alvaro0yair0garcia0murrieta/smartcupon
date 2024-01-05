@@ -3,7 +3,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="empresa">
-    
+    <select id= "empresas" resultType= "modelo.pojo.Empresa">
+        SELECT 
+        `idEmpresa`,
+        `nombre`,
+        `rfc`,
+        `representante`,
+        `estatus`,
+        `ciudad`,
+        `telefono`,
+        `pagina`,
+        `codigoP`,
+        `correo`,
+        `calle`,
+        `numero`,
+        `nombreComercial` FROM empresa;
+    </select >
+    <select id="porId" parameterType="int" resultType= "modelo.pojo.Empresa">
+        SELECT `idEmpresa`,
+        `nombre`,
+        `rfc`,
+        `representante`,
+        `estatus`,
+        `ciudad`,
+        `telefono`,
+        `pagina`,
+        `codigoP`,
+        `correo`,
+        `calle`,
+        `numero`,
+        `nombreComercial` FROM empresa where idEmpresa = #{idEmpresa}
+    </select>
     <select id ="busquedaSucursal" parameterType="int" resultType="modelo.pojo.Sucursal">
         SELECT s.nombre
         FROM  sucursal s INNER JOIN empresa m 
@@ -11,11 +41,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         WHERE m.idEmpresa = #{idEmpresa}; 
     </select>
     <delete id="eliminar" parameterType = "int" >
-        DELETE FROM `smartcupon`.`empresa`
+        DELETE FROM  `empresa`
 WHERE idEmpresa = #{idEmpresa};
     </delete>
     <insert id="registrar" parameterType="modelo.pojo.Empresa">
-        INSERT INTO `smartcupon`.`empresa`
+        INSERT INTO  `empresa`
         (`nombre`,
         `rfc`,
         `representante`,
@@ -51,12 +81,12 @@ WHERE idEmpresa = #{idEmpresa};
     </update>
     <select id= "obtenerLogo" parameterType="int" resultType="modelo.pojo.Empresa">
         SELECT idEmpresa, TO_BASE64(logo) AS 'logoBase64'
-        FROM `smartcupon`.`empresa`
+        FROM  `empresa`
         WHERE idEmpresa=#{idEmpresa}
     </select>
     
     <update id="actualizar" parameterType="modelo.pojo.Empresa">
-        UPDATE `smartcupon`.`empresa`
+        UPDATE  `empresa`
             SET
             `nombre` = #{nombre},
             `nombreComercial` = #{nombreComercial},
