@@ -93,6 +93,8 @@ public class FXMLUsuarios2Controller implements Initializable,IRespuesta {
      
                 
         Parent vista = loadVista.load();
+        FXMLRegistrarUsuarioController controller= loadVista.getController();
+        controller.init(this);
             Stage stage =new Stage();
             Scene esena = new Scene(vista);
             stage.initModality(Modality.APPLICATION_MODAL);

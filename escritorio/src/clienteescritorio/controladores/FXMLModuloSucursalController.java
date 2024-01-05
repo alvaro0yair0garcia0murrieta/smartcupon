@@ -38,6 +38,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import modelo.pojo.Mensaje;
 import modelo.pojo.Promocion;
 
 /**
@@ -79,6 +80,8 @@ public class FXMLModuloSucursalController implements Initializable,IRespuesta {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
          configurarColumnas();
+         
+         
     }    
 
     void inicializarUsuario(Usuario usuario) {
@@ -109,7 +112,7 @@ public class FXMLModuloSucursalController implements Initializable,IRespuesta {
             Scene esena = new Scene(vista);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(esena);
-            stage.setTitle("MODULO SUCURSAL");
+            stage.setTitle("Registro SUCURSAL");
             stage.showAndWait();
         } catch (IOException ex) {
             
@@ -139,13 +142,21 @@ public class FXMLModuloSucursalController implements Initializable,IRespuesta {
                     +seleccion.getNombre()+", de su registro?");
             
             if(respuesta.get() == ButtonType.OK){
-                SucursalDAO.eliminar(seleccion.getIdSucursal());
+               
+                
+                   Mensaje msj =  SucursalDAO.eliminar(seleccion.getIdSucursal());
                 notificarGuardado();
+if(!msj.getError()){
+    Utilidades.alerta("eliminada", msj.getContenido(), Alert.AlertType.INFORMATION);
+ 
+}else{
+    Utilidades.alerta("error de eliminacion", msj.getContenido(), Alert.AlertType.ERROR);
+}
             }
             
         }else{
             Utilidades.alerta("Selección requerida", 
-                    "Debes seleccionar un paciente para su eliminación", 
+                    "Debes seleccionar  para su eliminación", 
                     Alert.AlertType.WARNING);
         }
     }

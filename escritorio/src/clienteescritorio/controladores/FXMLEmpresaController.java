@@ -37,6 +37,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelo.DAO.EmpresaDAO;
 import modelo.pojo.Empresa;
+import modelo.pojo.Mensaje;
 import modelo.pojo.Sucursal;
 import modelo.pojo.Usuario;
 import utiles.Utilidades;
@@ -47,7 +48,7 @@ import utiles.Utilidades;
  * @author a-rac
  */
 public class FXMLEmpresaController implements Initializable,IRespuesta {
-Usuario usuario;
+
     @FXML
     private TableView<Empresa> tableView;
     @FXML
@@ -80,9 +81,10 @@ Usuario usuario;
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        configuraColumnas();
+             configuraColumnas();
+             llenarTabla();
         inicializarBusqueda();
-        llenarTabla();
+      
     }    
 
 
@@ -101,7 +103,7 @@ Usuario usuario;
             Scene esena = new Scene(vista);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(esena);
-            stage.setTitle("MODULO SUCURSAL");
+            stage.setTitle("REGISTRO EMPRESA");
             stage.showAndWait();
         } catch (IOException ex) {
             
@@ -118,7 +120,7 @@ Usuario usuario;
             cambiapantalla(empresa);
         }else{
             Utilidades.alerta("Selección requerida", 
-                    "Debes seleccionar un paciente para su edición", 
+                    "Debes seleccionar una empresa para su edición", 
                     Alert.AlertType.WARNING);
                 }
 
@@ -138,8 +140,14 @@ Usuario usuario;
         dialogoAlertaConfirmacion.getButtonTypes().setAll(eliminarButtonType, desabilitarButtonType);
        Optional<ButtonType> respuesta= dialogoAlertaConfirmacion.showAndWait();
        if(respuesta.get()== eliminarButtonType){
-           EmpresaDAO.eliminar(seleccion.getIdEmpresa());
-          
+           Mensaje msj=  EmpresaDAO.eliminar(seleccion.getIdEmpresa());
+          if(!msj.getError()){
+    Utilidades.alerta("Promocion eliminada", msj.getContenido(), Alert.AlertType.INFORMATION);
+    notificarGuardado();
+ 
+}else{
+    Utilidades.alerta("error de eliminacion", msj.getContenido(), Alert.AlertType.ERROR);
+}
        }else if (respuesta.get()== desabilitarButtonType) {
            seleccion.setEstatus("DESACTIVADO");
               EmpresaDAO.actualizacion(seleccion);
@@ -221,6 +229,7 @@ Usuario usuario;
             tableView.setItems(empresasOrdenados);
         }
     }
+     
       private void llenarTabla(){
         
         HashMap<String,Object> respMap= EmpresaDAO.lista();
@@ -241,5 +250,5 @@ Usuario usuario;
     empresas.clear();
     llenarTabla();
     }
-      
+ 
 }

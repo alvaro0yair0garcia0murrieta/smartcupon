@@ -96,7 +96,8 @@ public class FXMLModificarUsuarioController implements Initializable {
             u.setIdEmpresa(usuario.getIdEmpresa());
             u.setNombre(nombreField.getText());
             u.setUsername(usuarioField.getText());
-            
+            u.setIdEmpresa(usuario.getIdEmpresa());
+            u.setIdUsuario(usuario.getIdUsuario());
                   return u;
         }
 }

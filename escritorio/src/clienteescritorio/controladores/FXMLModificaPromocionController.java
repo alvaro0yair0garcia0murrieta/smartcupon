@@ -68,8 +68,6 @@ public class FXMLModificaPromocionController implements Initializable {
     @FXML
     private TextField tipoField;
     @FXML
-    private ToggleGroup tipo1;
-    @FXML
     private ToggleGroup estatus;
     @FXML
     private TextField RestField;
@@ -95,7 +93,7 @@ public class FXMLModificaPromocionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
           String tiposA[] =
-                   { "FARMACIA", "COMERCIAL", "CAFETERIAS"};
+                   { "Farmacia", "Comercial", "Cafeteria"};
         ObservableList<String> tiposList = FXCollections.observableArrayList(tiposA);
         categoriaCombo.setItems(tiposList);
          tipo.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
@@ -134,7 +132,11 @@ public class FXMLModificaPromocionController implements Initializable {
 
     @FXML
     private void modificar(ActionEvent event) {
-       Promocion promocion = sacaPromocion();
+        if(tipoPromo==null){
+         Utilidades.alerta("valor incorecto", "elija categoria", Alert.AlertType.WARNING);
+        }else  {
+            try {
+           Promocion promocion = sacaPromocion();
         Mensaje msj = PromocionDAO.actualizacion(promocion);
 if(!msj.getError()){
     Utilidades.alerta("Promocion guardada", msj.getContenido(), Alert.AlertType.INFORMATION);
@@ -143,6 +145,11 @@ if(!msj.getError()){
 }else{
     Utilidades.alerta("error de guardado", msj.getContenido(), Alert.AlertType.ERROR);
     }
+         
+            } catch (NullPointerException e) {
+              Utilidades.alerta("valor vacios", "llene los campos", Alert.AlertType.WARNING);
+            }
+        }
     }
     
     void inicializarPromocion(Promocion promocion,IRespuesta observador,Usuario u) {
@@ -168,7 +175,8 @@ if(!msj.getError()){
          promocion.setFechaInicio(inicioDate.getValue().toString());
          promocion.setNombre(nombreField.getText());
          promocion.setEstatus(estatusString);
-            
+            promocion.setIdPromocion(this.promocion.getIdPromocion());
+            promocion.setIdEmpresa(this.promocion.getIdEmpresa());
       return  promocion;
       }
     
@@ -201,6 +209,7 @@ if(!msj.getError()){
        inicioDate.setValue(LocalDate.parse(promocion.getFechaInicio()));
        liminteDate.setValue(LocalDate.parse(promocion.getFechaFin()));
        nombreField.setText(promocion.getNombre());
+       obtenerImagenServicio();
        
     
 }
@@ -263,8 +272,8 @@ if(!msj.getError()){
     private void obtenerImagenServicio(){
         Promocion promocionFoto = 
                 PromocionDAO.obtenerFotografia(promocion.getIdPromocion());
-        if(promocionFoto != null && promocionFoto.getGetImagenBase64() != null 
-                && !promocionFoto.getGetImagenBase64().isEmpty()){
+        if(promocionFoto != null && promocionFoto.getImagenBase64() != null 
+                && !promocionFoto.getImagenBase64().isEmpty()){
             mostrarFotografiaServidor(promocionFoto.getImagenBase64());
         }
     }
@@ -273,5 +282,10 @@ if(!msj.getError()){
         byte[] foto = Base64.getDecoder().decode(imgBase64.replaceAll("\\n", ""));
         Image image = new Image(new ByteArrayInputStream(foto));
         imagen.setImage(image);
+    }
+
+    @FXML
+    private void asiignaCategoria(ActionEvent event) {
+            tipoPromo= categoriaCombo.getValue();
     }
 }

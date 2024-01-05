@@ -47,15 +47,11 @@
                <children>
                <Label text="Estatus: " />
                   <RadioButton fx:id="ONRadio" mnemonicParsing="false" text="activo">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="tipo" />
-                     </toggleGroup>
-                  </RadioButton>
-                  <RadioButton fx:id="OFFRadio" mnemonicParsing="false" text="desactivado">
                <toggleGroup>
                   <ToggleGroup fx:id="estatus" />
                </toggleGroup>
-            </RadioButton>
+                  </RadioButton>
+                  <RadioButton fx:id="OFFRadio" mnemonicParsing="false" text="desactivado" toggleGroup="$estatus" />
                </children>
             </HBox>
       <HBox prefHeight="42.0" prefWidth="241.0">

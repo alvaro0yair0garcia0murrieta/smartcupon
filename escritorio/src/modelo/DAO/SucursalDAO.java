@@ -85,7 +85,15 @@ public class  SucursalDAO {
     public static Mensaje eliminar(int id){
         Mensaje mensaje = new Mensaje();
        String url = Constantes.URI_WS_SUCURSAL_E+id;
-     
+     CodigoHTTP  respuesta= ConexionHTTP.peticionDELETE(url);
+        if (respuesta.getCodigoRespuesta()==HttpURLConnection.HTTP_OK ) {
+           Gson gson =new  Gson();
+           mensaje =gson.fromJson(respuesta.getContenido(),Mensaje.class);
+        }
+        else{
+            mensaje.setError(true);
+            mensaje.setContenido("Error por el momento no puede eliminar");
+        }
         return mensaje;
     }
 

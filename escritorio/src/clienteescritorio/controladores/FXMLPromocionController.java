@@ -68,26 +68,29 @@ public class FXMLPromocionController implements Initializable,IRespuesta {
     private TableColumn inicioC;
     @FXML
     private TableColumn finC;
+    
     @FXML
-    private TextField busquedaField;
+    private TextField busquedaPromocionField;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         inicializarBusqueda();
+         
+         configuraColumnas();
     }    
 
     void inicializarUsuario(Usuario usuario) {
    this.usuario = usuario;
-   configuraColumnas();
+   
+   
         if (usuario.privilegios(usuario.getRol())) {
         llenarTablaAdmin();
         }else{
    llenarTabla();         
         }
-   
+   inicializarBusqueda();
     }
 
     @FXML
@@ -126,7 +129,7 @@ public class FXMLPromocionController implements Initializable,IRespuesta {
 
     @FXML
     private void limpiar(ActionEvent event) {
-    busquedaField.clear();
+    busquedaPromocionField.clear();
     }
 
     @FXML
@@ -258,41 +261,43 @@ if(!msj.getError()){
 
 
   
-     private void inicializarBusqueda(){
+private void inicializarBusqueda(){
         if(promociones != null){
             FilteredList<Promocion> filtro = 
                     new FilteredList<>(promociones, p -> true);
             
-            busquedaField.textProperty().addListener(new ChangeListener<String>(){
+            busquedaPromocionField.textProperty().addListener(new ChangeListener<String>(){
                 
                 @Override
                 public void changed(ObservableValue<? extends String> observable, 
                         String oldValue, String newValue) {
                     
-                    filtro.setPredicate(itemBusqueda -> {
+                    filtro.setPredicate(busqueda -> {
                         // Regla cuando es vacio
                         if(newValue == null || newValue.isEmpty()){
                             return true;
                         }
                         String lowerFilter = newValue.toLowerCase();
                         // Reglas de filtrado
-                        if(itemBusqueda.getNombre().toLowerCase().contains(lowerFilter)){
+                        if(busqueda.getNombre().toLowerCase().contains(lowerFilter)){
                             return true;
                         }
-                        if(itemBusqueda.getFechaInicio().toLowerCase().contains(lowerFilter)){
+                        if(busqueda.getFechaInicio().toLowerCase().contains(lowerFilter)){
                             return true;
                         }
-                        return itemBusqueda.getFechaFin().toLowerCase().contains(lowerFilter);    
+                        if(busqueda.getFechaFin().toLowerCase().contains(lowerFilter)){
+                            return true;
+                        }
+                       
+                        return false;    
                     });
                 }
-
-               
             });
             SortedList<Promocion> promocionesOrdenados = new SortedList<>(filtro);
             promocionesOrdenados.comparatorProperty().bind(tableView.comparatorProperty());
-            tableView.setItems(promocionesOrdenados);
+           tableView.setItems(promocionesOrdenados);
         }
-    }
+        }
        private void llenarTablaAdmin(){
         
         HashMap<String,Object> respMap= PromocionDAO.lista();

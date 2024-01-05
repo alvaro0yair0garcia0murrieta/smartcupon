@@ -3,10 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/a-rac/OneDrive/Escritorio/smartcupon/escritorio/src/clienteescritorio/controladores/FXMLRegistroPromocionController.java</file>
-            <file>file:/C:/Users/a-rac/OneDrive/Escritorio/smartcupon/escritorio/src/modelo/DAO/PromocionDAO.java</file>
-            <file>file:/C:/Users/a-rac/OneDrive/Escritorio/smartcupon/escritorio/src/clienteescritorio/controladores/FXMLPromocionController.java</file>
-            <file>file:/C:/Users/a-rac/OneDrive/Escritorio/smartcupon/escritorio/src/utiles/ConexionHTTP.java</file>
+            <file>file:/C:/Users/a-rac/OneDrive/Escritorio/smartcupon/escritorio/src/clienteescritorio/controladores/FXMLUsuarios2Controller.java</file>
+            <file>file:/C:/Users/a-rac/OneDrive/Escritorio/smartcupon/escritorio/src/clienteescritorio/controladores/FXMLEmpresaController.java</file>
         </group>
     </open-files>
 </project-private>

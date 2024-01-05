@@ -40,7 +40,7 @@
          </children>
       </HBox>
             <Label text="categoria" />
-            <ComboBox fx:id="categoriaCombo" prefWidth="150.0" />
+            <ComboBox fx:id="categoriaCombo" onAction="#asiignaCategoria" prefWidth="150.0" />
             <Label text="tipo" />
             <HBox prefHeight="21.0" prefWidth="214.0">
                <children>
@@ -58,14 +58,10 @@
                   <Label text="Estatus: " />
                   <RadioButton fx:id="actRadio" mnemonicParsing="false" text="activo">
                      <toggleGroup>
-                        <ToggleGroup fx:id="tipo1" />
-                     </toggleGroup>
-                  </RadioButton>
-                  <RadioButton fx:id="desaRadio" mnemonicParsing="false" text="desactivado">
-                     <toggleGroup>
                         <ToggleGroup fx:id="estatus" />
                      </toggleGroup>
                   </RadioButton>
+                  <RadioButton fx:id="desaRadio" mnemonicParsing="false" text="desactivado" toggleGroup="$estatus" />
                </children>
             </HBox>
       

@@ -10,28 +10,24 @@
         android:id="@+id/editarB"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="336dp"
-        android:layout_marginBottom="664dp"
+
         android:src="@drawable/ic_edit"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/farmaciasB"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/farmaciasB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="126dp"
-        android:layout_marginBottom="29dp"
         android:text="promociones de farmacias"
         android:textColor="#455A64"
         app:layout_constraintBottom_toTopOf="@+id/cafeteriasB"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editarB" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/cafeteriasB"

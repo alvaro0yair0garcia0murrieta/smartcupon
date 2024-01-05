@@ -4,6 +4,7 @@
  */
 package clienteescritorio.controladores;
 
+import interfaces.Privilegios;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,7 +31,7 @@ import utiles.Utilidades;
  *
  * @author a-rac
  */
-public class FXMLHomeController implements Initializable {
+public class FXMLHomeController implements Initializable, Privilegios {
 
     private Usuario usuario;
     @FXML
@@ -88,13 +89,12 @@ public class FXMLHomeController implements Initializable {
         if (!usuario.privilegios(usuario.getRol())) {
             irAEdicionEmpresa();
         } else {
-        }
-        try {
+            try {
             
             FXMLLoader loadVista = new FXMLLoader(getClass().getResource("fxml/FXMLEmpresa.fxml"));
             Parent vista = loadVista.load();
     
-  
+          
             Stage stage =new Stage();
             Scene esena = new Scene(vista);
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -104,7 +104,9 @@ public class FXMLHomeController implements Initializable {
         } catch (IOException ex) {
             
             Logger.getLogger(FXMLHomeController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
         }
+       
     }
     private void irAEdicionEmpresa(){
        
@@ -155,7 +157,7 @@ public class FXMLHomeController implements Initializable {
         if (usuario.privilegios(usuario.getRol())) {
          try {
             
-            FXMLLoader loadVista = new FXMLLoader(getClass().getResource("fxml/FXMLUsuarios.fxml"));
+            FXMLLoader loadVista = new FXMLLoader(getClass().getResource("fxml/FXMLUsuarios2.fxml"));
             Parent vista = loadVista.load();
     
            
@@ -170,7 +172,7 @@ public class FXMLHomeController implements Initializable {
             Logger.getLogger(FXMLHomeController.class.getName()).log(Level.SEVERE, null, ex);
         }   
         }else{
-              Utilidades.alerta("credenciales incorrectas", "solo usuarios Generales pueden aceder aal modulo", Alert.AlertType.INFORMATION);
+              Utilidades.alerta("credenciales incorrectas", "solo usuarios Generales pueden aceder al modulo", Alert.AlertType.INFORMATION);
         }
             
         
@@ -195,6 +197,11 @@ public class FXMLHomeController implements Initializable {
             
             Logger.getLogger(FXMLHomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public void vericador() {
+        
     }
     
 }

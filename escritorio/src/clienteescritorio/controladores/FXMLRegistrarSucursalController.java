@@ -68,23 +68,21 @@ public class FXMLRegistrarSucursalController implements Initializable {
 
     @FXML
     private void registrar(ActionEvent event) {
-        Sucursal sucursal = sacaDatos();
+     
         
         if (nombreField.getText().isEmpty() || calleField.getText().isEmpty() || numeroField.getText().isEmpty()) {
               Utilidades.alerta("campos vacios", "porfavor llene todos los campos vacios", Alert.AlertType.WARNING);
             
         }else if (!Utilidades.numeroValido(numeroField.getText())){
-            Utilidades.alerta("campos vacios", "porfavor llene todos los campos vacios", Alert.AlertType.WARNING);
+            Utilidades.alerta("campos incorecctos", "porfavor  introdusca un numero valido de domicilio", Alert.AlertType.WARNING);
         } else {
-               if (usuario.privilegios(usuario.getRol())) {
-               
-                Empresa empresa = empresas.get(empresaCombo.getSelectionModel().getSelectedIndex());
-                sucursal.setIdEmpresa(empresa.getIdEmpresa());
-                registro(sucursal);
-            }else{
-                sucursal.setIdEmpresa(idEmpresa);
-                   registro(sucursal);
+            try {
+               Sucursal s = sacaDatos();
+          registro(s);      
+            } catch (NullPointerException e) {
+                
             }
+                
         }
     }
     
@@ -94,12 +92,20 @@ public class FXMLRegistrarSucursalController implements Initializable {
         sucursal.setCalle(calleField.getText());
         sucursal.setCiudad(ciudadField.getText());
         sucursal.setCodigoP(codigoPField.getText());
-        sucursal.setColonia(coloniaField.getText());
         sucursal.setTelefono(telefonoField.getText());
         sucursal.setEncargado(encargadoField.getText());
         sucursal.setLatitud(latitudField.getText());
         sucursal.setLongitud(longitudField.getText());
         sucursal.setNumero(numeroField.getText());
+        if (usuario.privilegios(usuario.getRol())) {
+               
+                Empresa empresa = empresas.get(empresaCombo.getSelectionModel().getSelectedIndex());
+                sucursal.setIdEmpresa(empresa.getIdEmpresa());
+               
+            }else{
+                sucursal.setIdEmpresa(idEmpresa);
+             
+            }
         
         return sucursal;
     }

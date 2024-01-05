@@ -42,7 +42,7 @@ public class EmpresaDAO {
     }
     public static Mensaje subirFotografiaEmpresa(byte[] fotografia, int idEmpresa){
          Mensaje msj = new Mensaje();
-        String url = Constantes.URI_WS_Promocion_IMAGEN+idEmpresa;
+        String url = Constantes.URI_WS_Empresa_LOGO+idEmpresa;
         CodigoHTTP respuesta = ConexionHTTP.peticionPUTImagen(url, fotografia);
         if(respuesta.getCodigoRespuesta() == HttpURLConnection.HTTP_OK){
             Gson gson = new Gson();
@@ -112,7 +112,15 @@ public class EmpresaDAO {
     public static Mensaje eliminar(int id){
         Mensaje mensaje = new Mensaje();
        String url = Constantes.URI_WS_Empresa_E+id;
-     
+      CodigoHTTP  respuesta= ConexionHTTP.peticionDELETE(url);
+        if (respuesta.getCodigoRespuesta()==HttpURLConnection.HTTP_OK ) {
+           Gson gson =new  Gson();
+           mensaje =gson.fromJson(respuesta.getContenido(),Mensaje.class);
+        }
+        else{
+            mensaje.setError(true);
+            mensaje.setContenido("Error por el momento no puede eliminar");
+        }
         return mensaje;
     }
 

@@ -16,7 +16,7 @@
       <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="650.0" spacing="10">
          <children>
             <Label text="busqueda" />
-            <TextField fx:id="busquedaField" />
+            <TextField fx:id="busquedaPromocionField" />
             <Button mnemonicParsing="false" onAction="#limpiar" text="cancelar" />
          </children>
       </HBox>

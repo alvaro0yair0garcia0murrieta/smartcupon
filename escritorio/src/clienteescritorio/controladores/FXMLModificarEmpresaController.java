@@ -6,6 +6,7 @@
 package clienteescritorio.controladores;
 
 import interfaces.IRespuesta;
+import interfaces.Privilegios;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -44,6 +45,7 @@ public class FXMLModificarEmpresaController implements Initializable {
   private File imagenSeleccionada;
   private String estatusString;
    private IRespuesta observador;
+
     @FXML
     private TextField tfNombre;
     @FXML
@@ -103,7 +105,10 @@ public class FXMLModificarEmpresaController implements Initializable {
         Mensaje msj= EmpresaDAO.actualizacion(empresa);
         if(!msj.getError()){
     Utilidades.alerta("empresa guardada", msj.getContenido(), Alert.AlertType.INFORMATION);
-    observador.notificarGuardado();
+            if (observador != null) {
+                observador.notificarGuardado();
+            }
+    
     cerrarPantalla();
 }else{
     Utilidades.alerta("error de guardado", msj.getContenido(), Alert.AlertType.ERROR);
@@ -159,6 +164,7 @@ public class FXMLModificarEmpresaController implements Initializable {
          empresa.setNumero(tfnumero.getText());
          empresa.setTelefono(tftel.getText());
          empresa.setEstatus(estatusString);
+         empresa.setIdEmpresa(this.empresa.getIdEmpresa());
          return  empresa;
      }
 
@@ -177,6 +183,7 @@ public class FXMLModificarEmpresaController implements Initializable {
     }else{
         OFFRadio.setSelected(true);
     }
+    obtenerImagenServicio();
     }
        private void cargarFotografiaServidor(File imagen){
         try {

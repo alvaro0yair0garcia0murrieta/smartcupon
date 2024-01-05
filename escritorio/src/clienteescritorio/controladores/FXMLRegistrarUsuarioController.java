@@ -1,11 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package clienteescritorio.controladores;
 
-import clienteescritorio.controladores.fxml.FXMLUsuariosController;
 import interfaces.IRespuesta;
 import java.net.URL;
 import java.util.List;
@@ -25,11 +23,9 @@ import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import modelo.DAO.EmpresaDAO;
-import modelo.DAO.PromocionDAO;
 import modelo.DAO.UsuarioDAO;
 import modelo.pojo.Empresa;
 import modelo.pojo.Mensaje;
-import modelo.pojo.Promocion;
 import modelo.pojo.Usuario;
 import utiles.Utilidades;
 
@@ -39,8 +35,10 @@ import utiles.Utilidades;
  * @author a-rac
  */
 public class FXMLRegistrarUsuarioController implements Initializable {
-  private ObservableList<Empresa> empresas;
+private ObservableList<Empresa> empresas;
+String rol;
   private int idEmpresa;
+  
    private IRespuesta observador;
     @FXML
     private ComboBox<Empresa> empresaCombo;
@@ -78,9 +76,11 @@ public class FXMLRegistrarUsuarioController implements Initializable {
                     Toggle oldValue, Toggle newValue) {
                 if(GeneralRadio.isSelected()){
                    empresaCombo.setDisable(true);
+                   rol ="GENERAL";
                    
                 }else{
                    empresaCombo.setDisable(false);
+                   rol="Comercial";
                 }
             }
 
@@ -97,10 +97,16 @@ public class FXMLRegistrarUsuarioController implements Initializable {
 
     @FXML
     private void registrari(ActionEvent event) {
-        Usuario u= sacaDatos();
+       
         if (Utilidades.validarCorreo(correoField.getText())) {
+            try {
+                 Usuario u= sacaDatos();
+                 registro(u);
+            } catch (NullPointerException e) {
+                  Utilidades.alerta("error", "correo llene todos los campos", Alert.AlertType.ERROR);
+            }
             
-            registro(u);
+            
         }else{
             Utilidades.alerta("error", "correo invalido", Alert.AlertType.ERROR);
         }
@@ -133,15 +139,23 @@ if(!msj.getError()){
             u.setApellidoP(apellidoPField.getText());
             u.setContrasena(contrasenafield.getText());
             u.setCorreo(correoField.getText());
-             Empresa empresa = empresas.get(empresaCombo.getSelectionModel().getSelectedIndex());
+           
+               
+            if (rol.equals("GENERAL")) {
+                u.setIdEmpresa(-2);
+            }else{
+                  Empresa empresa = empresas.get(empresaCombo.getSelectionModel().getSelectedIndex());
             u.setIdEmpresa(empresa.getIdEmpresa());
+            }
+            
             u.setNombre(nombreField.getText());
             u.setUsername(usuarioField.getText());
+            u.setRol(rol);
             
                   return u;
         }
 
-    public void inicializar( IRespuesta observador) {
+    public void init( IRespuesta observador) {
     this.observador = observador;
     }
         

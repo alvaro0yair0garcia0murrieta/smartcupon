@@ -71,5 +71,23 @@ public class Utilidades {
         dialogoAlertaConfirmacion.setContentText(confirmacion);
         return dialogoAlertaConfirmacion.showAndWait();
     }
-   
+    
+   public static boolean esFechaNoExpirada(String fecha) {
+        // Define el formato de fecha de MySQL
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+
+        try {
+        
+            Date fechaParseada = formatoFecha.parse(fecha);
+
+
+            Date fechaActual = new Date();
+
+          
+            return !fechaParseada.before(fechaActual);
+        } catch (ParseException e) {
+    
+            return false;
+        }
+    }
 }

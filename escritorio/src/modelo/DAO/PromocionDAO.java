@@ -185,20 +185,19 @@ public class PromocionDAO {
           }
         return respuesta;}
 
-    public static Mensaje canje(String text) {
-     Mensaje respuestaws = new Mensaje();
+    public static String canje(String text) {
+        String respuestaws;
        
         String url = Constantes.URI_WS+"/promocion/canjear/"+text;
           CodigoHTTP respuestaConexion = ConexionHTTP.peticionGET(url);
        
        if(respuestaConexion.getCodigoRespuesta()== HttpURLConnection.HTTP_OK){     
 //GSON claveSegura456
-           Gson gson= new Gson();
-           respuestaws = gson.fromJson(respuestaConexion.getContenido(),Mensaje.class);
+          respuestaws= respuestaConexion.getContenido();
            
        }else{
-           respuestaws.setError(true);
-           respuestaws.setContenido("error al realizar peticion");           
+          
+           respuestaws = "error al realizar peticion";         
        }
      return respuestaws;}
 

@@ -77,6 +77,8 @@ public class FXMLModificarSucursalController implements Initializable {
         sucursal.setLatitud(latitudField.getText());
         sucursal.setLongitud(longitudField.getText());
         sucursal.setNumero(numeroField.getText());
+        sucursal.setIdEmpresa(this.sucursal.getIdEmpresa());
+        sucursal.setIdSucursal(this.sucursal.getIdSucursal());
         
         return sucursal;
     }

@@ -106,9 +106,9 @@ public class FXMLRegistroPromocionController implements Initializable {
 
     @FXML
     private void registrar(ActionEvent event) {
-        Promocion promocion= sacaPromocion();
-        if (!nombreField.getText().isEmpty()) {
-        if (!Utilidades.validarAlfanumerica(promocion.getCodigo())) {
+   
+        
+        if (!Utilidades.validarAlfanumerica(codigoField.getText())) {
              Utilidades.alerta("valor incorecto", "codigo no valido", Alert.AlertType.WARNING);
         }
         else if(!Utilidades.numeroValido(cuponField.getText())){
@@ -116,11 +116,22 @@ public class FXMLRegistroPromocionController implements Initializable {
         
         }else if (!Utilidades.validarAlfanumerica(codigoField.getText())) {
               Utilidades.alerta("valor incorecto", "codigo no alfanumerico no valido", Alert.AlertType.WARNING);
-        }  else  {
-            registro(promocion);
-        }    
-        }else{
-              Utilidades.alerta("campo vacio", "llene los campos", Alert.AlertType.WARNING);
+         
+        }else if ( simbolo==null) {
+             Utilidades.alerta("valor incorecto", "elija promocion no valido", Alert.AlertType.WARNING);
+        } else if(tipoPromo==null){
+         Utilidades.alerta("valor incorecto", "elija categoria", Alert.AlertType.WARNING);
+        }else  {
+            try {
+            Promocion promocion= sacaPromocion();    
+           registro(promocion);
+            } catch (NullPointerException e) {
+              Utilidades.alerta("valor vacios", "llene los campos", Alert.AlertType.WARNING);
+            }
+     
+            
+           
+           
         }
         
         
@@ -164,7 +175,7 @@ if(!msj.getError()){
             }       
          promocion.setRestriccion(RestField.getText());
          promocion.setCodigo(codigoField.getText());
-         promocion.setCuponesMax(Integer.parseInt(cuponField.getText()));
+         promocion.setCuponesMax(Integer.valueOf(cuponField.getText()));
          promocion.setDescripcion(descripField.getText());
          promocion.setFechaFin(liminteDate.getValue().toString());
          promocion.setFechaInicio(inicioDate.getValue().toString());

@@ -5,8 +5,11 @@
  */
 package clienteescritorio.controladores;
 
+import interfaces.IRespuesta;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -37,7 +40,7 @@ import modelo.DAO.PromocionDAO;
  *
  * @author a-rac
  */
-public class FXMLCuponController implements Initializable {
+public class FXMLCuponController implements Initializable,IRespuesta {
     ObservableList<Promocion> promociones; 
 
     @FXML
@@ -72,6 +75,8 @@ public class FXMLCuponController implements Initializable {
             Stage stage =new Stage();
             Scene esena = new Scene(vista);
             stage.initModality(Modality.APPLICATION_MODAL);
+            FXMLCanjeController controller = loadVista.getController();
+            controller.init(this);
             stage.setScene(esena);
             stage.setTitle("canje");
             stage.showAndWait();
@@ -94,7 +99,18 @@ public class FXMLCuponController implements Initializable {
         if (!(boolean)respMap.get("error")) {
             List<Promocion> lista= (List<Promocion>) respMap.get("lista");
             promociones = FXCollections.observableArrayList();
-            promociones.addAll(lista);
+           
+            for (Promocion promocion : lista) {
+                if (Utilidades.esFechaNoExpirada(promocion.getFechaFin())) {
+                    if (promocion.estatus()) {
+                        if(promocion.getCuponesMax()>0){
+                            promociones.add(promocion);
+                        }
+                        
+                    }
+                }
+                    
+            }
         
             tableView.setItems(promociones);
              
@@ -102,5 +118,11 @@ public class FXMLCuponController implements Initializable {
         {
             Utilidades.alerta("erorr", "xd", Alert.AlertType.ERROR);
         }
+    }
+
+    @Override
+    public void notificarGuardado() {
+        promociones.clear();
+        llenarTabla();
     }
 }

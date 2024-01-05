@@ -63,13 +63,20 @@ public class FXMLRegistrarEmpresaController implements Initializable {
 
     @FXML
     private void registrar(ActionEvent event) {
-        Empresa empresa= sacaEmpresa();
+        
         if (tfNombre.getText().isEmpty()||tfRFC.getText().isEmpty()||tfRep.getText().isEmpty()) {
               Utilidades.alerta("campo vacio", "llene los campos", Alert.AlertType.WARNING); 
         }else{
             if (Utilidades.numeroValido(tfCP.getText())||Utilidades.numeroValido(tfnumero.getText())||Utilidades.numeroValido(tftel.getText())) {
                 if (Utilidades.validarCorreo(tfCor.getText())) {
-                     registro(empresa);
+                    try {
+                        Empresa empresa= sacaEmpresa();
+                    registro(empresa);    
+                    } catch (NullPointerException e) {
+                          Utilidades.alerta("campo vacio", "llene los campos", Alert.AlertType.WARNING); 
+                    }
+ 
+                    
                 }else{
                      Utilidades.alerta("campo invalido", "correo incorecto", Alert.AlertType.WARNING); 
                 }
@@ -84,8 +91,9 @@ public class FXMLRegistrarEmpresaController implements Initializable {
 Mensaje msj = EmpresaDAO.registro(empresa);
 if(!msj.getError()){
     Utilidades.alerta("Empresa registrada", msj.getContenido(), Alert.AlertType.INFORMATION);
-    observador.notificarGuardado();
+    
     cerrarPantalla();
+    observador.notificarGuardado();
 }else{
     Utilidades.alerta("error de registro", msj.getContenido(), Alert.AlertType.ERROR);
 }
