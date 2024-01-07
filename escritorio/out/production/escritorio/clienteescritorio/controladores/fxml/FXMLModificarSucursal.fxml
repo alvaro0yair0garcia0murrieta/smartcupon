@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="405.0" prefWidth="214.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLModificarSucursalController">
+   <children>
+       <VBox prefHeight="575.0" prefWidth="287.0" styleClass="form">
+          <children>
+          <Label text="Nombre:" />
+          <TextField fx:id="nombreField" />
+      <Label text="Empresa: " />
+            <ComboBox fx:id="empresaCombo" prefWidth="150.0" />
+      
+                <Label text="Encargado:" />
+          <TextField fx:id="encargadoField" />
+            <HBox prefHeight="25.0" prefWidth="477.0">
+               <children>
+                  <VBox prefHeight="42.0" prefWidth="149.0">
+                     <children>
+                  
+                      <Label text="Calle:" />
+                      <TextField fx:id="calleField" prefHeight="25.0" prefWidth="187.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="62.0" prefWidth="99.0">
+                     <children>
+                      
+                      <Label prefHeight="25.0" prefWidth="93.0" text="Numero:" />
+                      <TextField fx:id="numeroField" prefHeight="25.0" prefWidth="78.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="25.0" prefWidth="477.0">
+               <children>
+                  <VBox prefHeight="42.0" prefWidth="93.0">
+                     <children>
+                        <Label text="Ciudad:" />
+                        <TextField fx:id="ciudadField" prefHeight="25.0" prefWidth="81.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="62.0" prefWidth="154.0">
+                     <children>
+                      
+                      <Label text="Colonia:" />
+                      <TextField fx:id="coloniaField" prefHeight="37.0" prefWidth="144.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+      
+          <Label text="Telefono:" />
+          <TextField fx:id="telefonoField" />
+      
+          <Label text="Codigo Postal:" />
+          <TextField fx:id="codigoPField" />
+      
+          <Label text="Latitut:" />
+          <TextField fx:id="latitudField" />
+       
+          <Label text="Longitud:" />
+          <TextField fx:id="longitudField" />
+      
+      
+          <Button onAction="#registrar" text="Registrar" />
+          </children>
+       
+       </VBox>
+   </children> 
+   <stylesheets>
+        <URL value="@formularios.css" />
+    </stylesheets>
+</AnchorPane>

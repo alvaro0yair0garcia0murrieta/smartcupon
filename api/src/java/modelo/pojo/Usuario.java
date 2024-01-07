@@ -6,20 +6,21 @@
 package modelo.pojo;
 
 /**
+ *
  * @author a-rac
  */
 public class Usuario {
-
-    private Integer idUsuario;
-    private Integer idEmpresa;
-    private String nombre;
-    private String rol;
-    private String username;
-    private String contrasena;
-    private String curp;
-    private String correo;
-    private String apellidoP;
-    private String apellidoM;
+    
+private Integer  idUsuario ;
+private Integer  idEmpresa ;
+private String  nombre ;
+private String  rol ;
+private String  username ;
+private String  contrasena ;
+private String  curp ;
+private String  correo ;
+private String  apellidoP ;
+private String apellidoM;
 
     public Usuario() {
     }

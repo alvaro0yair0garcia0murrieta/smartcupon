@@ -1,0 +1,48 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 5/01/2024, 12:00:20 AM
+    Author     : a-rac
+*/
+.root {
+    -fx-font-family: "Arial";
+    -fx-background-color: #F5F5F5;
+}
+
+.search-bar {
+    -fx-padding: 10px;
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #3F51B5;
+    -fx-border-radius: 5px;
+}
+
+.search-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3F51B5;
+}
+
+.search-field {
+    -fx-font-size: 16px;
+}
+
+.button {
+    -fx-background-color: #FF4081;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+}
+
+.table {
+    -fx-border-color: #3F51B5;
+    -fx-border-radius: 5px;
+}
+
+.button-bar {
+    -fx-padding: 10px;
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #3F51B5;
+    -fx-border-radius: 5px;
+}
+

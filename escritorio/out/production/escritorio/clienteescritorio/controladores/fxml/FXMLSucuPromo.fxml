@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.fxml.FXMLSucuPromoController">
+ 
+   <children>
+   
+       <VBox alignment="center" spacing="20">
+      <children>
+      
+              <Label text="Sucursales:" />
+              <ListView fx:id="lvSucursales" prefHeight="200" />
+      
+              
+      
+              <Button onAction="irAPromosucus" text="asignar sucursal" />
+      </children>
+   
+       </VBox>
+   </children>
+   <stylesheets>
+        <URL value="@formularios.css" />
+    </stylesheets>
+
+</AnchorPane>

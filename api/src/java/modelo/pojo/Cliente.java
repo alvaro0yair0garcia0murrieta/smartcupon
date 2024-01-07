@@ -6,6 +6,7 @@
 package modelo.pojo;
 
 /**
+ *
  * @author a-rac
  */
 public class Cliente {
@@ -20,8 +21,7 @@ public class Cliente {
     private String nacimiento;
     private String contrasena;
 
-    public Cliente() {
-    }
+    public Cliente() {}
 
     public String getContrasena() {
         return contrasena;
@@ -102,6 +102,8 @@ public class Cliente {
     public void setNacimiento(String nacimiento) {
         this.nacimiento = nacimiento;
     }
-
-
+    
+   
+            
+    
 }

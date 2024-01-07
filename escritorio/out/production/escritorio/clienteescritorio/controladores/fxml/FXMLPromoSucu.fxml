@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="339.0" prefWidth="318.0" styleClass="form" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLPromoSucuController">
+   <children>
+   
+       <VBox alignment="center" layoutX="33.0" layoutY="30.0" spacing="20">
+      <children>
+      
+              <Label text="Sucursales:" />
+            <VBox fx:id="listaVbox" prefHeight="200.0" prefWidth="100.0" />
+      
+              <HBox spacing="20">
+         <children>
+                     <Button onAction="#seleccionarTodas" text="Seleccionar todas" />
+                     <Button onAction="#deseleccionarTodas" text="Deseleccionar todas" />
+         </children>
+              </HBox>
+      
+              <Button onAction="#aplicarPromocion" text="Aplicar promoción" />
+      </children>
+   
+       </VBox>
+   </children>
+ 
+   <stylesheets>
+        <URL value="@formularios.css" />
+    </stylesheets>
+</AnchorPane>

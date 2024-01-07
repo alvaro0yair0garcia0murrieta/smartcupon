@@ -6,14 +6,25 @@
 package recursosWeb;
 
 import com.google.gson.Gson;
+import java.util.List;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
 import modelo.dao.UsuarioDAO;
 import modelo.pojo.Respuesta;
 import modelo.pojo.Usuario;
-
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import java.util.List;
 
 /**
  * REST Web Service
@@ -23,8 +34,8 @@ import java.util.List;
 @Path("usuario")
 public class UsuarioResource {
     Gson gson = new Gson();
-
-
+    
+  
     /**
      * Creates a new instance of UsuarioResource
      */
@@ -33,7 +44,6 @@ public class UsuarioResource {
 
     /**
      * Retrieves representation of an instance of recursosWeb.UsuarioResource
-     *
      * @return an instance of java.lang.String
      */
     @GET
@@ -45,63 +55,61 @@ public class UsuarioResource {
 
     /**
      * PUT method for updating or creating an instance of UsuarioResource
-     *
      * @param content representation for the resource
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void putJson(String content) {
     }
-
-    @GET
+   
+     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("usuarios")
-    public List<Usuario> lista() {
-        List<Usuario> usuarios = UsuarioDAO.usuarios();
-        return usuarios;
+    public List<Usuario> lista(){
+        List<Usuario> usuarios= UsuarioDAO.usuarios();
+        return usuarios;   
     }
-
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("registrar")
-    public Respuesta registro(String json) {
-        Usuario usuario = gson.fromJson(json, Usuario.class);
+    public Respuesta registro(String json){
+      Usuario usuario= gson.fromJson(json, Usuario.class);
         if (usuario == null) {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
         return UsuarioDAO.registrar(usuario);
     }
-
+    
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("actualizar")
-    public Respuesta actualizar(String json) {
-        Usuario usuario = gson.fromJson(json, Usuario.class);
-        if (usuario.getIdUsuario() < 0 || usuario.getIdUsuario() == null) {
+    public Respuesta actualizar(String json){
+     Usuario usuario = gson.fromJson(json, Usuario.class);
+        if (usuario.getIdUsuario()<0 || usuario.getIdUsuario()==null) {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
-
+            
         }
         return UsuarioDAO.modificar(usuario);
-    }
-
+    } 
+    
     @POST
     @Produces
     @Path("login")
-    public Respuesta login(@FormParam("username") String user, @FormParam("contrasena") String contrasena) {
-        return UsuarioDAO.login(user, contrasena);
+    public Respuesta login(@FormParam("username") String user,@FormParam("contrasena") String contrasena){
+       return UsuarioDAO.login(user,contrasena); 
     }
-
     @DELETE
     @Path("eliminar/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Respuesta actualizar(@PathParam("id") int id) {
-        if (id < 0) {
-            throw new WebApplicationException(Response.Status.BAD_REQUEST);
-        } else {
-            return UsuarioDAO.eliminar(id);
+    public Respuesta actualizar(@PathParam("id")int id){
+        if (id<0) {
+            throw new WebApplicationException (Response.Status.BAD_REQUEST);
+        }
+        else{
+        return  UsuarioDAO.eliminar(id);        
         }
     }
-
+    
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import java.net.*?>
+
+<VBox prefHeight="289.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLEmpresaController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="650.0" spacing="10" styleClass="search-bar">
+         <children>
+            <Label styleClass="search-label" text="busqueda" />
+            <TextField fx:id="busquedaField" styleClass="search-field" />
+            <Button mnemonicParsing="false" onAction="#borrarCampo" text="cancelar" />
+         </children>
+      </HBox>
+       
+             <TableView fx:id="tableView" prefHeight="172.0" prefWidth="648.0" styleClass="table">
+           <columns>
+               <TableColumn fx:id="nombreC" prefWidth="54.0" text="Nombre" />
+            <TableColumn fx:id="RFCC" prefWidth="75.0" text="RFC" />
+            <TableColumn fx:id="representanteC" prefWidth="124.0" text="represente" />
+            <TableColumn fx:id="estatusC" prefWidth="57.0" text="estatus" />
+            <TableColumn fx:id="calleC" prefWidth="55.0" text="calle" />
+            <TableColumn fx:id="numeroC" prefWidth="61.66668701171875" text="numero" />
+            <TableColumn fx:id="ciudadC" prefWidth="66.33334350585938" text="Ciudad" />
+            <TableColumn fx:id="telefonoC" prefWidth="60.66668701171875" text="telefono" />
+            <TableColumn fx:id="CorreoC" prefWidth="71.0" text="correo" />
+            <TableColumn fx:id="aliasC" prefWidth="109.66668701171875" text="nombre comercial" />
+               <!-- Add other columns as needed -->
+           </columns>
+       </TableView>
+      <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="678.0" spacing="10.0" styleClass="button-bar">
+         <children>
+            <Button mnemonicParsing="false" onAction="#irARegistro" text="Registrar" />
+            <Button mnemonicParsing="false" onAction="#irAModificar" text="Actualizar" />
+            <Button mnemonicParsing="false" onAction="#eliminaFila" text="eliminar" />
+         </children>
+      </HBox>
+   </children>   
+     <stylesheets>
+        <URL value="@tablas.css" />
+    </stylesheets> 
+</VBox>

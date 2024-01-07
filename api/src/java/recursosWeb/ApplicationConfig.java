@@ -5,10 +5,11 @@
  */
 package recursosWeb;
 
-import javax.ws.rs.core.Application;
 import java.util.Set;
+import javax.ws.rs.core.Application;
 
 /**
+ *
  * @author a-rac
  */
 @javax.ws.rs.ApplicationPath("api")
@@ -34,5 +35,5 @@ public class ApplicationConfig extends Application {
         resources.add(recursosWeb.SucursalResource.class);
         resources.add(recursosWeb.UsuarioResource.class);
     }
-
+    
 }

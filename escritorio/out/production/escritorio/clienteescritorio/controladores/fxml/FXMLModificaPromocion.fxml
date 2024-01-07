@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import java.net.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="739.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLModificaPromocionController">
+    <children>     
+    <VBox prefHeight="665.0" prefWidth="374.0" styleClass="form">
+          <children>
+          <Label text="Nombre:" />
+          <TextField fx:id="nombreField" />
+      <Label text="Empresa: " />
+            <ComboBox fx:id="empresaCombo" prefWidth="150.0" />
+      
+                <Label text="Descripcion" />
+          <TextField fx:id="descripField" />
+          <ImageView fx:id="imagen" fitHeight="110.0" fitWidth="158.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="40.0" right="50.0" top="10.0" />
+               </VBox.margin></ImageView>
+      <HBox prefHeight="25.0" prefWidth="152.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#CatgarLogo" text="Cargar logo">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="40.0" right="50.0" top="10.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding></Button>
+            <Button mnemonicParsing="false" onAction="#subirLogo" text="Subir Logo">
+                     <HBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding></Button>
+         </children>
+      </HBox>
+            <Label text="categoria" />
+            <ComboBox fx:id="categoriaCombo" onAction="#asiignaCategoria" prefWidth="150.0" />
+            <Label text="tipo" />
+            <HBox prefHeight="21.0" prefWidth="214.0">
+               <children>
+                  <RadioButton fx:id="descRadio" mnemonicParsing="false" text="descuento (%)">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="tipo" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rebRadio" mnemonicParsing="false" text="rebaja ($)" toggleGroup="$tipo" />
+               </children>
+            </HBox>
+            <TextField fx:id="tipoField" />
+            <HBox prefHeight="21.0" prefWidth="214.0">
+               <children>
+                  <Label text="Estatus: " />
+                  <RadioButton fx:id="actRadio" mnemonicParsing="false" text="activo">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="estatus" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="desaRadio" mnemonicParsing="false" text="desactivado" toggleGroup="$estatus" />
+               </children>
+            </HBox>
+      
+          <Label text="Restriccion" />
+          <TextField fx:id="RestField" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="codigo" />
+                        <TextField fx:id="codigoField" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="62.0" prefWidth="173.0">
+                     <children>
+                  
+                            <Label text="Numero de cupones" />
+                      <TextField fx:id="cuponField" prefHeight="25.0" prefWidth="128.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="62.0" prefWidth="148.0">
+                     <children>
+                        <Label text="Fecha de inicio" />
+                        <DatePicker fx:id="inicioDate" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="62.0" prefWidth="136.0">
+                     <children>
+                        <Label text="Fecha limite" />
+                        <DatePicker fx:id="liminteDate" prefHeight="37.0" prefWidth="130.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+      
+      
+          <Button onAction="#modificar" text="modificar" />
+          </children>
+       
+       </VBox>
+   </children>
+   <stylesheets>
+        <URL value="@formularios.css" />
+    </stylesheets>
+</AnchorPane>

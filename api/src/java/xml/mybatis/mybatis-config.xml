@@ -26,5 +26,6 @@ and open the template in the editor.
          <mapper resource="xml/mybatis/mappers/promocionmapper.xml"/>
          <mapper resource="xml/mybatis/mappers/sucursalmapper.xml"/>
          <mapper resource="xml/mybatis/mappers/ususariomapper.xml"/>
+
     </mappers>
 </configuration>

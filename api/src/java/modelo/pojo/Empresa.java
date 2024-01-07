@@ -6,24 +6,25 @@
 package modelo.pojo;
 
 /**
+ *
  * @author a-rac
  */
 public class Empresa {
-    private Integer idEmpresa;
-    private String nombre;
-    private String rfc;
-    private String representante;
-    private String estatus;
-    private String ciudad;
-    private String telefono;
-    private String pagina;
-    private String codigoP;
-    private byte[] logo;
-    private String logoBase64;
-    private String correo;
-    private String calle;
-    private String numero;
-    private String nombreComercial;
+private Integer idEmpresa; 
+private String nombre; 
+private String rfc; 
+private String representante; 
+private String estatus; 
+private String ciudad; 
+private String telefono; 
+private String pagina; 
+private String codigoP; 
+private byte[] logo;
+private String logoBase64;
+private String correo; 
+private String calle;
+private String numero; 
+private String nombreComercial;
 
     public Empresa() {
     }
@@ -148,5 +149,5 @@ public class Empresa {
         this.nombreComercial = nombreComercial;
     }
 
-
+    
 }

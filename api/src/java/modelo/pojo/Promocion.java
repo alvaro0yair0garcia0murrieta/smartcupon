@@ -6,6 +6,7 @@
 package modelo.pojo;
 
 /**
+ *
  * @author a-rac
  */
 public class Promocion {
@@ -24,7 +25,7 @@ public class Promocion {
     private String fechaFin;
     private Integer cuponesMax;
     private Integer idEmpresa;
-    private String empresa;
+    private  String empresa;
 
     public Promocion() {
     }
@@ -134,7 +135,7 @@ public class Promocion {
         this.cuponesMax = cuponesMax;
     }
 
-    public boolean estatus() {
+    public  boolean estatus(){
         String status = this.estatus;
         return "ACTIVO".equals(status);
     }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import java.net.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="288.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLPromocionController">
+    <children>
+      <HBox alignment="CENTER_LEFT" layoutY="7.0" prefHeight="47.0" prefWidth="391.0" spacing="10">
+         <children>
+            <Label styleClass="search-label" text="busqueda" />
+            <TextField fx:id="busquedaPromocionField">
+               <styleClass>
+                  <String fx:value="search-field" />
+                  <String fx:value="search-bar" />
+               </styleClass></TextField>
+            <Button mnemonicParsing="false" onAction="#limpiar" text="cancelar" />
+         </children>
+      </HBox>
+       
+             <TableView fx:id="tableView" layoutX="5.0" layoutY="58.0" prefHeight="172.0" prefWidth="749.0" styleClass="table">
+           <columns>
+            <TableColumn fx:id="nombreC" prefWidth="75.0" text="nombre" />
+               <TableColumn fx:id="codigoC" prefWidth="54.0" text="codigo" />
+            <TableColumn fx:id="descpC" prefWidth="159.0" text="descripcion" />
+            <TableColumn fx:id="restriccionC" prefWidth="64.0" text="restriccion" />
+            <TableColumn fx:id="categoriaC" prefWidth="59.0" text="categoria" />
+            <TableColumn fx:id="tipoC" prefWidth="54.0" text="tipo" />
+            <TableColumn fx:id="estatusC" prefWidth="57.0" text="estatus" />
+            <TableColumn fx:id="inicioC" prefWidth="95.0" text="fecha de inicio" />
+            <TableColumn fx:id="finC" minWidth="5.0" prefWidth="130.0" text="fecha de vencimiento" />
+      
+           </columns>
+       </TableView>
+      <HBox alignment="CENTER_LEFT" layoutX="3.0" layoutY="242.0" prefHeight="37.0" prefWidth="456.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#irARegistrar" text="Registrar" />
+            <Button mnemonicParsing="false" onAction="#irAModificar" text="Actualizar" />
+            <Button mnemonicParsing="false" onAction="#eliminar" text="eliminar" />
+            <Button mnemonicParsing="false" onAction="#irASucursales" prefHeight="37.0" prefWidth="140.0" text="asignar sucursal" />
+         </children>
+      </HBox>
+   </children>
+     <stylesheets>
+        <URL value="@tablas.css" />
+    </stylesheets>
+</AnchorPane>
