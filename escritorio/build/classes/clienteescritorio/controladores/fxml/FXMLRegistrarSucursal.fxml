@@ -13,7 +13,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="405.0" prefWidth="214.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLRegistrarSucursalController">
    <children>
-       <VBox prefHeight="622.0" prefWidth="292.0" styleClass="form">
+       <VBox prefHeight="637.0" prefWidth="315.0" styleClass="form">
           <children>
           <Label text="Nombre:" />
           <TextField fx:id="nombreField" />
@@ -24,31 +24,40 @@
           <TextField fx:id="encargadoField" />
             <HBox prefHeight="25.0" prefWidth="477.0">
                <children>
-                  <VBox prefHeight="42.0" prefWidth="149.0">
-                     <children>
-                  
-                      <Label text="Calle:" />
-                      <TextField fx:id="calleField" prefHeight="25.0" prefWidth="187.0" />
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="62.0" prefWidth="103.0">
-                     <children>
-                      
-                      <Label prefHeight="25.0" prefWidth="97.0" text="Numero:" />
-                      <TextField fx:id="numeroField" prefHeight="25.0" prefWidth="78.0" />
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-            <HBox prefHeight="25.0" prefWidth="477.0">
+                <HBox prefHeight="25.0" prefWidth="477.0">
                <children>
-                  <VBox prefHeight="62.0" prefWidth="368.0">
+                  <VBox prefHeight="42.0" prefWidth="93.0">
                      <children>
                         <Label text="Ciudad:" />
                         <TextField fx:id="ciudadField" prefHeight="25.0" prefWidth="81.0" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="42.0" prefWidth="120.0" />
+                  <VBox prefHeight="62.0" prefWidth="196.0">
+                     <children>
+                      
+                      <Label text="Colonia:" />
+                      <TextField fx:id="coloniaField" prefHeight="37.0" prefWidth="144.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+                  <VBox prefHeight="62.0" prefWidth="114.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="25.0" prefWidth="477.0">
+               <children>
+                  <VBox prefHeight="62.0" prefWidth="201.0">
+                     <children>
+                        <Label text="Calle:" />
+                        <TextField fx:id="calleField" prefHeight="25.0" prefWidth="81.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="42.0" prefWidth="120.0">
+                     <children>
+                      
+                      <Label prefHeight="25.0" prefWidth="98.0" text="Numero:" />
+                      <TextField fx:id="numeroField" prefHeight="25.0" prefWidth="78.0" />
+                     </children></VBox>
                </children>
             </HBox>
       

@@ -1,82 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import java.net.*?>
+<?import java.net.URL?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" prefHeight="598.0" prefWidth="319.0"
+            xmlns="http://javafx.com/javafx/8"
+            fx:controller="clienteescritorio.controladores.FXMLRegistroPromocionController">
+    <children>
+        <VBox prefHeight="595.0" prefWidth="316.0" styleClass="form">
+            <children>
+                <Label text="Nombre:"/>
+                <TextField fx:id="nombreField"/>
 
-<AnchorPane id="AnchorPane" prefHeight="598.0" prefWidth="319.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLRegistroPromocionController">
-<children>     
-    <VBox prefHeight="595.0" prefWidth="316.0" styleClass="form">
-          <children>
-          <Label text="Nombre:" />
-          <TextField fx:id="nombreField" />
-          
-            <Label text="Empresa: " />
-            <ComboBox fx:id="empresaCombo" prefWidth="150.0" />
-      
-                <Label text="Descripcion" />
-          <TextField fx:id="descripField" />
-            <Label text="categoria" />
-            <ComboBox fx:id="categoriaCombo" onAction="#tipos" prefWidth="150.0" />
-            <Label text="tipo" />
-            <HBox prefHeight="21.0" prefWidth="214.0">
-               <children>
-                  <RadioButton fx:id="descRadio" mnemonicParsing="false" text="descuento (%)">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="tipo" />
-                     </toggleGroup>
-                  </RadioButton>
-                  <RadioButton fx:id="rebRadio" mnemonicParsing="false" text="rebaja ($)" toggleGroup="$tipo" />
-               </children>
-            </HBox>
-            <TextField fx:id="tipoField" />
-      
-          <Label text="Restriccion" />
-          <TextField fx:id="RestField" />
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <Label text="codigo" />
-                        <TextField fx:id="codigoField" />
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="62.0" prefWidth="166.0">
-                     <children>
-                  
-                            <Label text="Numero de cupones" />
-                      <TextField fx:id="cuponField" />
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <VBox prefHeight="62.0" prefWidth="133.0">
-                     <children>
-                        <Label text="Fecha de inicio" />
-                        <DatePicker fx:id="inicioDate" />
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="62.0" prefWidth="139.0">
-                     <children>
-                        <Label text="Fecha limite" />
-                        <DatePicker fx:id="liminteDate" />
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-      
-      
-          <Button onAction="#registrar" text="Registrar" />
-          </children>
-       
-       </VBox>
-   </children>
-   <stylesheets>
-        <URL value="@formularios.css" />
+                <Label text="Empresa: "/>
+                <ComboBox fx:id="empresaCombo" prefWidth="150.0"/>
+
+                <Label text="Descripcion"/>
+                <TextField fx:id="descripField"/>
+                <Label text="categoria"/>
+                <ComboBox fx:id="categoriaCombo" onAction="#tipos" prefWidth="150.0"/>
+                <Label text="tipo"/>
+                <HBox prefHeight="21.0" prefWidth="214.0">
+                    <children>
+                        <RadioButton fx:id="descRadio" mnemonicParsing="false" text="descuento (%)">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="tipo"/>
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rebRadio" mnemonicParsing="false" text="rebaja ($)" toggleGroup="$tipo"/>
+                    </children>
+                </HBox>
+                <TextField fx:id="tipoField"/>
+
+                <Label text="Restriccion"/>
+                <TextField fx:id="RestField"/>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Label text="codigo"/>
+                                <TextField fx:id="codigoField"/>
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="62.0" prefWidth="166.0">
+                            <children>
+
+                                <Label text="Numero de cupones"/>
+                                <TextField fx:id="cuponField"/>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <VBox prefHeight="62.0" prefWidth="133.0">
+                            <children>
+                                <Label text="Fecha de inicio"/>
+                                <DatePicker fx:id="inicioDate"/>
+                            </children>
+                        </VBox>
+                        <VBox prefHeight="62.0" prefWidth="139.0">
+                            <children>
+                                <Label text="Fecha limite"/>
+                                <DatePicker fx:id="liminteDate"/>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+
+
+                <Button onAction="#registrar" text="Registrar"/>
+            </children>
+
+        </VBox>
+    </children>
+    <stylesheets>
+        <URL value="@formularios.css"/>
     </stylesheets>
 </AnchorPane>

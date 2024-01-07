@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         jsonACliente()
         title = "Bienvenido(a) ${cliente.nombre}"
         binding.editarB.setOnClickListener {
-            irAEditar(cliente)
+            irAConf(cliente)
         }
         binding.irCupones.setOnClickListener {
             irACange()
@@ -35,10 +35,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun irAEditar(cliente: Cliente) {
+    private fun irAConf(cliente: Cliente) {
         val gson = Gson()
         val stringCliente = gson.toJson(cliente)
-        val intent = Intent(this@MainActivity, EdicionActivity::class.java)
+        val intent = Intent(this@MainActivity, configuracion::class.java)
         intent.putExtra("cliente", stringCliente)
         startActivity(intent)
     }

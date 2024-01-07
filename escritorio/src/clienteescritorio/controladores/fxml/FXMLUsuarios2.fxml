@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import java.net.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import java.net.URL?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" prefHeight="272.0" prefWidth="531.0"
+            xmlns="http://javafx.com/javafx/8" fx:controller="clienteescritorio.controladores.FXMLUsuarios2Controller">
+    <children>
+        <HBox alignment="CENTER_LEFT" prefHeight="59.0" prefWidth="528.0" spacing="10" styleClass="search-bar">
+            <children>
+                <Label text="busqueda"/>
+                <TextField fx:id="busquedaField" styleClass="search-field"/>
+                <Button mnemonicParsing="false" onAction="#limpiar" text="cancelar"/>
+            </children>
+        </HBox>
 
-<AnchorPane id="AnchorPane" prefHeight="272.0" prefWidth="531.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="clienteescritorio.controladores.FXMLUsuarios2Controller">
-     <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="59.0" prefWidth="528.0" spacing="10" styleClass="search-bar">
-         <children>
-            <Label text="busqueda" />
-            <TextField fx:id="busquedaField" styleClass="search-field" />
-            <Button mnemonicParsing="false" onAction="#limpiar" text="cancelar" />
-         </children>
-      </HBox>
-       
-             <TableView fx:id="tableView" layoutX="1.0" layoutY="59.0" prefHeight="172.0" prefWidth="528.0" styleClass="table">
-           <columns>
-            <TableColumn fx:id="nombreC" prefWidth="75.0" text="nombre" />
-            <TableColumn fx:id="apellidoPC" prefWidth="75.0" text="apellido Paterno" />
-            <TableColumn fx:id="apelidoMC" prefWidth="75.0" text="apellido Materno" />
-            <TableColumn fx:id="usernameC" prefWidth="75.0" text="usuario" />
-            <TableColumn fx:id="curpC" prefWidth="75.0" text="curp" />
-            <TableColumn fx:id="correoC" prefWidth="75.0" text="correo" />
-            <TableColumn fx:id="rolC" prefWidth="75.0" text="rol" />
+        <TableView fx:id="tableView" layoutX="1.0" layoutY="59.0" prefHeight="172.0" prefWidth="528.0"
+                   styleClass="table">
+            <columns>
+                <TableColumn fx:id="nombreC" prefWidth="75.0" text="nombre"/>
+                <TableColumn fx:id="apellidoPC" prefWidth="75.0" text="apellido Paterno"/>
+                <TableColumn fx:id="apelidoMC" prefWidth="75.0" text="apellido Materno"/>
+                <TableColumn fx:id="usernameC" prefWidth="75.0" text="usuario"/>
+                <TableColumn fx:id="curpC" prefWidth="75.0" text="curp"/>
+                <TableColumn fx:id="correoC" prefWidth="75.0" text="correo"/>
+                <TableColumn fx:id="rolC" prefWidth="75.0" text="rol"/>
 
-           </columns>
-       </TableView>
-      <HBox alignment="CENTER_LEFT" layoutX="1.0" layoutY="231.0" prefHeight="59.0" prefWidth="528.0" spacing="10.0" styleClass="button-bar">
-         <children>
-            <Button mnemonicParsing="false" onAction="#irARegistrar" text="Registrar" />
-            <Button mnemonicParsing="false" onAction="#irAModificar" text="Actualizar" />
-            <Button mnemonicParsing="false" onAction="#eliminar" text="eliminar" />
-         </children>
-      </HBox>
-   </children>
-     <stylesheets>
-        <URL value="@tablas.css" />
+            </columns>
+        </TableView>
+        <HBox alignment="CENTER_LEFT" layoutX="1.0" layoutY="231.0" prefHeight="59.0" prefWidth="528.0" spacing="10.0"
+              styleClass="button-bar">
+            <children>
+                <Button mnemonicParsing="false" onAction="#irARegistrar" text="Registrar"/>
+                <Button mnemonicParsing="false" onAction="#irAModificar" text="Actualizar"/>
+                <Button mnemonicParsing="false" onAction="#eliminar" text="eliminar"/>
+            </children>
+        </HBox>
+    </children>
+    <stylesheets>
+        <URL value="@tablas.css"/>
     </stylesheets>
 </AnchorPane>

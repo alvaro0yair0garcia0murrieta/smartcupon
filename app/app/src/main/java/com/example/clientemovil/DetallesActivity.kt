@@ -16,6 +16,7 @@ import android.widget.Toast
 class DetallesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetallesBinding
     private lateinit var promocion: Promocion
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetallesBinding.inflate(layoutInflater)

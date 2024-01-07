@@ -1,31 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import java.net.*?>
+<?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" prefHeight="311.0" prefWidth="187.0" styleClass="form"
+      xmlns="http://javafx.com/javafx/8"
+      fx:controller="clienteescritorio.controladores.FXMLModificarUsuarioController">
+    <children>
+        <Label text="nombre"/>
+        <TextField fx:id="nombreField"/>
+        <Label text="apellido Paterno"/>
+        <TextField fx:id="apellidoPField"/>
+        <Label text="apellido materno"/>
+        <TextField fx:id="apellidoMField"/>
+        <Label text="Curp"/>
+        <TextField fx:id="CurpField"/>
+        <RadioButton fx:id="GeneralRadio" mnemonicParsing="false" text="General">
+            <toggleGroup>
+                <ToggleGroup fx:id="roles"/>
+            </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="COMOERCIALRadio" mnemonicParsing="false" text="Comercial" toggleGroup="$roles"/>
+        <Label text="Empresa: "/>
+        <ComboBox fx:id="empresaCombo" prefWidth="150.0"/>
 
-<VBox prefHeight="311.0" prefWidth="187.0" styleClass="form" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorio.controladores.FXMLModificarUsuarioController">
-   <children>
-      <Label text="nombre" />
-      <TextField fx:id="nombreField" />
-      <Label text="apellido Paterno" />
-      <TextField fx:id="apellidoPField" />
-      <Label text="apellido materno" />
-      <TextField fx:id="apellidoMField" />
-      <Label text="Curp" />
-      <TextField fx:id="CurpField" />
-      <Label text="correo electronico" />
-      <TextField fx:id="correoField" />
-      <Label text="username" />
-      <TextField fx:id="usuarioField" />
-      <Label text="contrasena" />
-      <TextField fx:id="contrasenafield" />
-      <Button mnemonicParsing="false" onAction="#modificar" text="modificar" />
-   </children>
-   <stylesheets>
-        <URL value="@formularios.css" />
+        <Label text="correo electronico"/>
+        <TextField fx:id="correoField"/>
+        <Label text="username"/>
+        <TextField fx:id="usuarioField"/>
+        <Label text="contrasena"/>
+        <TextField fx:id="contrasenafield"/>
+        <Button mnemonicParsing="false" onAction="#modificar" text="modificar"/>
+    </children>
+    <stylesheets>
+        <URL value="@formularios.css"/>
     </stylesheets>
 </VBox>

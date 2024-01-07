@@ -6,7 +6,6 @@
 package modelo.pojo;
 
 /**
- *
  * @author a-rac
  */
 public class Promocion {
@@ -46,7 +45,7 @@ public class Promocion {
         this.idPromocion = idPromocion;
     }
 
- 
+
     public byte[] getImagen() {
         return imagen;
     }
@@ -135,12 +134,13 @@ public class Promocion {
         this.cuponesMax = cuponesMax;
     }
 
-    public  boolean estatus(){
+    public boolean estatus() {
         String status = this.estatus;
         return "ACTIVO".equals(status);
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return nombre;
     }
 

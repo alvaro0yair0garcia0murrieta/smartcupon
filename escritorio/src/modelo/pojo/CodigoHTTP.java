@@ -6,14 +6,15 @@
 package modelo.pojo;
 
 /**
- *
  * @author a-rac
  */
 public class CodigoHTTP {
- private Integer codigoRespuesta;
- private String contenido;
-    public CodigoHTTP() {}
-    
+    private Integer codigoRespuesta;
+    private String contenido;
+
+    public CodigoHTTP() {
+    }
+
     public CodigoHTTP(Integer codigoRespuesta, String contenido) {
         this.codigoRespuesta = codigoRespuesta;
         this.contenido = contenido;
@@ -34,6 +35,6 @@ public class CodigoHTTP {
     public void setContenido(String contenido) {
         this.contenido = contenido;
     }
- 
- 
+
+
 }

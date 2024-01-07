@@ -6,9 +6,7 @@
 package modelo.pojo;
 
 
-
 /**
- *
  * @author a-rac
  */
 public class Mensaje {
@@ -16,27 +14,28 @@ public class Mensaje {
     private boolean error;
     private Cliente cliente;
     private Usuario usuario;
-    
+
     public Mensaje(String contenido, boolean error) {
-     this.contenido = contenido;
-     this.error = error;
-    
+        this.contenido = contenido;
+        this.error = error;
+
+    }
+
+    public Mensaje() {
     }
 
     public Cliente getCliente() {
         return cliente;
     }
 
-    @Override
-    public String toString() {
-        return "Mensaje{" + "contenido=" + contenido + ", error=" + error + ", cliente=" + cliente + ", usuario=" + usuario.toString() + '}';
-    }
-
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
-    public Mensaje() {}
+    @Override
+    public String toString() {
+        return "Mensaje{" + "contenido=" + contenido + ", error=" + error + ", cliente=" + cliente + ", usuario=" + usuario.toString() + '}';
+    }
 
     public String getContenido() {
         return contenido;
@@ -61,6 +60,6 @@ public class Mensaje {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
-    
+
+
 }

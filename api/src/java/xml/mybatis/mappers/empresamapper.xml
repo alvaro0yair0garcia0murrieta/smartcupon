@@ -1,107 +1,105 @@
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="empresa">
-    <select id= "empresas" resultType= "modelo.pojo.Empresa">
-        SELECT 
-        `idEmpresa`,
-        `nombre`,
-        `rfc`,
-        `representante`,
-        `estatus`,
-        `ciudad`,
-        `telefono`,
-        `pagina`,
-        `codigoP`,
-        `correo`,
-        `calle`,
-        `numero`,
-        `nombreComercial` FROM empresa;
-    </select >
-    <select id="porId" parameterType="int" resultType= "modelo.pojo.Empresa">
+    <select id="empresas" resultType="modelo.pojo.Empresa">
         SELECT `idEmpresa`,
-        `nombre`,
-        `rfc`,
-        `representante`,
-        `estatus`,
-        `ciudad`,
-        `telefono`,
-        `pagina`,
-        `codigoP`,
-        `correo`,
-        `calle`,
-        `numero`,
-        `nombreComercial` FROM empresa where idEmpresa = #{idEmpresa}
+               `nombre`,
+               `rfc`,
+               `representante`,
+               `estatus`,
+               `ciudad`,
+               `telefono`,
+               `pagina`,
+               `codigoP`,
+               `correo`,
+               `calle`,
+               `numero`,
+               `nombreComercial`
+        FROM empresa;
     </select>
-    <select id ="busquedaSucursal" parameterType="int" resultType="modelo.pojo.Sucursal">
+    <select id="porId" parameterType="int" resultType="modelo.pojo.Empresa">
+        SELECT `idEmpresa`,
+               `nombre`,
+               `rfc`,
+               `representante`,
+               `estatus`,
+               `ciudad`,
+               `telefono`,
+               `pagina`,
+               `codigoP`,
+               `correo`,
+               `calle`,
+               `numero`,
+               `nombreComercial`
+        FROM empresa
+        where idEmpresa = #{idEmpresa}
+    </select>
+    <select id="busquedaSucursal" parameterType="int" resultType="modelo.pojo.Sucursal">
         SELECT s.nombre
-        FROM  sucursal s INNER JOIN empresa m 
-        ON s.idEmpresa = m.idEmpresa
-        WHERE m.idEmpresa = #{idEmpresa}; 
+        FROM sucursal s
+                 INNER JOIN empresa m
+                            ON s.idEmpresa = m.idEmpresa
+        WHERE m.idEmpresa = #{idEmpresa};
     </select>
-    <delete id="eliminar" parameterType = "int" >
-        DELETE FROM  `empresa`
-WHERE idEmpresa = #{idEmpresa};
+    <delete id="eliminar" parameterType="int">
+        DELETE
+        FROM `empresa`
+        WHERE idEmpresa = #{idEmpresa};
     </delete>
     <insert id="registrar" parameterType="modelo.pojo.Empresa">
-        INSERT INTO  `empresa`
+        INSERT INTO `empresa`
         (`nombre`,
-        `rfc`,
-        `representante`,
-        `estatus`,
-        `ciudad`,
-        `telefono`,
-        `pagina`,
-        `codigoP`,
-        `correo`,
-        `calle`,
-        `numero`,
-        `nombreComercial`)
-        
-        VALUES
-        (#{nombre},
-        #{rfc},
-        #{representante},
-        'ACTIVO',
-        #{ciudad},
-        #{telefono},
-        #{pagina},
-        #{codigoP},
-        #{correo},
-        #{calle},
-        #{numero},
-        #{nombreComercial});
+         `rfc`,
+         `representante`,
+         `estatus`,
+         `ciudad`,
+         `telefono`,
+         `pagina`,
+         `codigoP`,
+         `correo`,
+         `calle`,
+         `numero`,
+         `nombreComercial`)
+
+        VALUES (#{nombre},
+                #{rfc},
+                #{representante},
+                'ACTIVO',
+                #{ciudad},
+                #{telefono},
+                #{pagina},
+                #{codigoP},
+                #{correo},
+                #{calle},
+                #{numero},
+                #{nombreComercial});
     </insert>
-    
+
     <update id="SubirLogo" parameterType="modelo.pojo.Empresa">
-         UPDATE empresa
+        UPDATE empresa
         SET logo = #{logo}
         WHERE idEmpresa = #{idEmpresa}
     </update>
-    <select id= "obtenerLogo" parameterType="int" resultType="modelo.pojo.Empresa">
+    <select id="obtenerLogo" parameterType="int" resultType="modelo.pojo.Empresa">
         SELECT idEmpresa, TO_BASE64(logo) AS 'logoBase64'
-        FROM  `empresa`
-        WHERE idEmpresa=#{idEmpresa}
+        FROM `empresa`
+        WHERE idEmpresa = #{idEmpresa}
     </select>
-    
+
     <update id="actualizar" parameterType="modelo.pojo.Empresa">
-        UPDATE  `empresa`
-            SET
-            `nombre` = #{nombre},
+        UPDATE `empresa`
+        SET `nombre`          = #{nombre},
             `nombreComercial` = #{nombreComercial},
-            `representante` = #{representante},
-            `estatus` = #{estatus},
-            `ciudad` = #{ciudad},
-            `telefono` = #{telefono},
-            `pagina` = #{pagina},
-            `codigoP` = #{codigoP},
-            `correo` = #{correo},
-            `calle` = #{calle},
-            `numero` = #{numero}
-            WHERE `idEmpresa` = #{idEmpresa};
+            `representante`   = #{representante},
+            `estatus`         = #{estatus},
+            `ciudad`          = #{ciudad},
+            `telefono`        = #{telefono},
+            `pagina`          = #{pagina},
+            `codigoP`         = #{codigoP},
+            `correo`          = #{correo},
+            `calle`           = #{calle},
+            `numero`          = #{numero}
+        WHERE `idEmpresa` = #{idEmpresa};
     </update>
-    
-    
-    
 </mapper>

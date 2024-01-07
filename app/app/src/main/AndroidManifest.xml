@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Clientemovil"
         tools:targetApi="31">
         <activity
+            android:name=".configuracion"
+            android:exported="false" />
+        <activity
             android:name=".CanjeActivity"
             android:exported="false" />
         <activity

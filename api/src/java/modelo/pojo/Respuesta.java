@@ -6,9 +6,7 @@
 package modelo.pojo;
 
 
-
 /**
- *
  * @author a-rac
  */
 public class Respuesta {
@@ -16,11 +14,13 @@ public class Respuesta {
     private boolean error;
     private Cliente cliente;
     private Usuario usuario;
-    
+
     public Respuesta(String contenido, boolean error) {
-     this.contenido = contenido;
-     this.error = error;
-    
+        this.contenido = contenido;
+        this.error = error;
+    }
+
+    public Respuesta() {
     }
 
     public Cliente getCliente() {
@@ -30,8 +30,6 @@ public class Respuesta {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-
-    public Respuesta() {}
 
     public String getContenido() {
         return contenido;
@@ -56,6 +54,6 @@ public class Respuesta {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
-    
+
+
 }

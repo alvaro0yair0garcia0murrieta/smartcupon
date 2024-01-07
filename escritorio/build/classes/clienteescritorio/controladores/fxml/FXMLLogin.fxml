@@ -18,7 +18,7 @@
          <TextField fx:id="usernameField" layoutX="14.0" layoutY="52.0" />
          <PasswordField fx:id="PasswordField" layoutX="14.0" layoutY="122.0" />
          <Button id="boton" fx:id="btnInciarSesion" layoutX="76.0" layoutY="184.0" mnemonicParsing="false" onAction="#handleButtonAction" text="ingresar" />
-         <Label id="error" fx:id="lbErrorPersonal" layoutX="64.0" layoutY="89.0" style="-fx-text-fill: firebrick;" stylesheets="@../resources/login.css" text="nombre de usuario">
+         <Label id="error" fx:id="lbErrorPersonal" layoutX="64.0" layoutY="89.0" style="-fx-text-fill: firebrick;"  text="nombre de usuario">
             <font>
                <Font size="11.0" />
             </font>

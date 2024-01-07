@@ -75,18 +75,13 @@
       <TextField fx:id="tfCP" />
       <HBox prefHeight="25.0" prefWidth="477.0">
          <children>
-            <VBox prefHeight="42.0" prefWidth="124.0">
+            <VBox prefHeight="62.0" prefWidth="407.0">
                <children>
                   <Label text="Ciudad:" />
                   <TextField fx:id="tfciudad" prefHeight="25.0" prefWidth="81.0" />
                </children>
             </VBox>
-            <VBox prefHeight="42.0" prefWidth="130.0">
-               <children>
-                  <Label text="Colonia:" />
-                  <TextField fx:id="tfcolonia" prefHeight="25.0" prefWidth="263.0" />
-               </children>
-            </VBox>
+            <VBox prefHeight="42.0" prefWidth="130.0" />
          </children>
       </HBox>
       <Label text="telefono" />

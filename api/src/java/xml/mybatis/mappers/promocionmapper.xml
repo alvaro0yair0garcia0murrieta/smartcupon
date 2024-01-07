@@ -1,127 +1,121 @@
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http  //mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http  //mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="promocion">
-
-    <select id="promocionesCategoria" resultType ="modelo.pojo.Promocion" parameterType="string">
-       SELECT idPromocion,
-   categoria,
-    `codigo`,
-    p.nombre,
-    `descripcion`,
-    `restriccion`,
-          e.nombre as empresa,
-    `tipo`,
-    p.estatus,    
-    `fechaInicio`,
-    `fechaFin`,
-     e.nombre,
-    `cuponesMax`  FROM promocion p INNER JOIN empresa e ON p.idEmpresa = e.idEmpresa where categoria=#{categoria} ;
+    <select id="promocionesCategoria" resultType="modelo.pojo.Promocion" parameterType="string">
+        SELECT idPromocion,
+        categoria,
+        `codigo`,
+        p.nombre,
+        `descripcion`,
+        `restriccion`,
+        e.nombre as empresa,
+        `tipo`,
+        p.estatus,
+        `fechaInicio`,
+        `fechaFin`,
+        e.nombre,
+        `cuponesMax` FROM promocion p INNER JOIN empresa e ON p.idEmpresa = e.idEmpresa where categoria=#{categoria} ;
     </select>
-    
-    <insert id= "asignar" parameterType="map">
+    <insert id="asignar" parameterType="map">
         INSERT INTO `promo_sucu`
-(`idPromo`,
-`idSucu`)
-VALUES
-(#{promocion},#{sucursal});
-    </insert>  
-    <select id="promociones" resultType ="modelo.pojo.Promocion">
-       SELECT idPromocion,
-    `codigo`,
-    `nombre`,
-    `descripcion`,
-    `restriccion`,
-    `categoria`,
-    `tipo`,
-    `estatus`,    
-    `fechaInicio`,
-    `fechaFin`,
-    `cuponesMax`,
-`idEmpresa`        FROM promocion;
+        (`idPromo`,
+        `idSucu`)
+        VALUES
+        (#{promocion},#{sucursal});
+    </insert>
+    <select id="promociones" resultType="modelo.pojo.Promocion">
+        SELECT idPromocion,
+        `codigo`,
+        `nombre`,
+        `descripcion`,
+        `restriccion`,
+        `categoria`,
+        `tipo`,
+        `estatus`,
+        `fechaInicio`,
+        `fechaFin`,
+        `cuponesMax`,
+        `idEmpresa` FROM promocion;
     </select>
-    
-      <select id="promocionesE" parameterType="int" resultType ="modelo.pojo.Promocion">
-       SELECT idPromocion,
-    `codigo`,
-    `nombre`,
-    `descripcion`,
-    `restriccion`,
-    `categoria`,
-    `tipo`,
-    `estatus`,    
-    `fechaInicio`,
-    `fechaFin`,
-    `cuponesMax`,
-     `idEmpresa`     FROM promocion where idEmpresa=#{idEmpresa};
+
+    <select id="promocionesE" parameterType="int" resultType="modelo.pojo.Promocion">
+        SELECT idPromocion,
+        `codigo`,
+        `nombre`,
+        `descripcion`,
+        `restriccion`,
+        `categoria`,
+        `tipo`,
+        `estatus`,
+        `fechaInicio`,
+        `fechaFin`,
+        `cuponesMax`,
+        `idEmpresa` FROM promocion where idEmpresa=#{idEmpresa};
     </select>
-    
-    <select id="busquedaCodigo" resultType="modelo.pojo.Promocion" parameterType="string" >
+    <select id="busquedaCodigo" resultType="modelo.pojo.Promocion" parameterType="string">
         select* from promocion where codigo = #{codigo}
     </select>
-     <update id="SubirImagen" parameterType="modelo.pojo.Promocion">
-         UPDATE promocion
+    <update id="SubirImagen" parameterType="modelo.pojo.Promocion">
+        UPDATE promocion
         SET imagen = #{imagen}
         WHERE idPromocion = #{idPromocion}
     </update>
-    <select id= "obtenerImagen" parameterType="int" resultType="modelo.pojo.Promocion">
+    <select id="obtenerImagen" parameterType="int" resultType="modelo.pojo.Promocion">
         SELECT idPromocion, TO_BASE64(imagen) AS 'imagenBase64'
         FROM promocion
         WHERE idPromocion=#{idPromocion}
     </select>
-    
-    <delete id="eliminar" parameterType = "int" >
-    DELETE FROM  `promocion` WHERE
-    `idPromocion` = #{idPromocion} ;
+    <delete id="eliminar" parameterType="int">
+        DELETE FROM `promocion` WHERE
+        `idPromocion` = #{idPromocion} ;
     </delete>
-    
+
     <insert id="registrar" parameterType="modelo.pojo.Promocion">
-    INSERT INTO  `promocion`
-    (`idEmpresa`,
-    `codigo`,
-    `nombre`,
-    `descripcion`,
-    `restriccion`,
-    `categoria`,
-    `tipo`,
-    `estatus`,    
-    `fechaInicio`,
-    `fechaFin`,
-    `cuponesMax`)
-    VALUES
-    (
+        INSERT INTO `promocion`
+        (`idEmpresa`,
+        `codigo`,
+        `nombre`,
+        `descripcion`,
+        `restriccion`,
+        `categoria`,
+        `tipo`,
+        `estatus`,
+        `fechaInicio`,
+        `fechaFin`,
+        `cuponesMax`)
+        VALUES
+        (
         #{idEmpresa},
-    #{codigo   } ,
-    #{nombre   } ,
-    #{descripcion   } ,
-    #{restriccion   } ,
-    #{categoria   } ,
-    #{tipo   } ,
-    'ACTIVO' ,
-    #{fechaInicio   } ,
-    #{fechaFin   } ,
-    #{cuponesMax   } );
+        #{codigo   } ,
+        #{nombre   } ,
+        #{descripcion   } ,
+        #{restriccion   } ,
+        #{categoria   } ,
+        #{tipo   } ,
+        'ACTIVO' ,
+        #{fechaInicio   } ,
+        #{fechaFin   } ,
+        #{cuponesMax   } );
     </insert>
-    
     <update id="actualizar" parameterType="modelo.pojo.Promocion">
-  UPDATE `promocion`
-SET
-`codigo` = #{codigo},
-`nombre` = #{nombre},
-`descripcion` = #{descripcion},
-`restriccion` = #{restriccion},
-`categoria` = #{categoria},
-`tipo` = #{tipo},
-`estatus` = #{estatus},
-`fechaInicio` = #{fechaInicio},
-`fechaFin` = #{fechaFin},
-`cuponesMax` = #{cuponesMax},
-`idEmpresa` = #{idEmpresa}
-WHERE `idPromocion` = #{idPromocion}
+        UPDATE `promocion`
+        SET
+        `codigo` = #{codigo},
+        `nombre` = #{nombre},
+        `descripcion` = #{descripcion},
+        `restriccion` = #{restriccion},
+        `categoria` = #{categoria},
+        `tipo` = #{tipo},
+        `estatus` = #{estatus},
+        `fechaInicio` = #{fechaInicio},
+        `fechaFin` = #{fechaFin},
+        `cuponesMax` = #{cuponesMax},
+        `idEmpresa` = #{idEmpresa}
+        WHERE `idPromocion` = #{idPromocion}
     </update>
-    <delete id = "promocion.promosucuDelete" parameterType="int">
+    <delete id="promocion.promosucuDelete" parameterType="int">
         DELETE FROM `promo_sucu`
-WHERE idPromo = #{id};
+        WHERE idPromo = #{id};
     </delete>
 </mapper>

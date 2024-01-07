@@ -6,19 +6,17 @@
 package clienteescritorio.controladores;
 
 import interfaces.IRespuesta;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
 import modelo.DAO.PromocionDAO;
-import modelo.pojo.Mensaje;
 import utiles.Utilidades;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class
@@ -26,7 +24,7 @@ import utiles.Utilidades;
  * @author a-rac
  */
 public class FXMLCanjeController implements Initializable {
-private IRespuesta observador;
+    private IRespuesta observador;
     @FXML
     private TextField codigoField;
     @FXML
@@ -38,20 +36,19 @@ private IRespuesta observador;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void canjear(ActionEvent event) {
         String msj = PromocionDAO.canje(codigoField.getText());
 
-    Utilidades.alerta("canjeo exitoso", msj, Alert.AlertType.INFORMATION);
-     observador.notificarGuardado();
-}
-
-    void init(IRespuesta obs) {
-    observador  = obs;
+        Utilidades.alerta("canjeo exitoso", msj, Alert.AlertType.INFORMATION);
+        observador.notificarGuardado();
     }
 
-    
-    
+    void init(IRespuesta obs) {
+        observador = obs;
+    }
+
+
 }

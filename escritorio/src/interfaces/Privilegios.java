@@ -9,6 +9,6 @@ package interfaces;
  * @author a-rac
  */
 public interface Privilegios {
-    public void vericador();
+    void vericador();
     
 }

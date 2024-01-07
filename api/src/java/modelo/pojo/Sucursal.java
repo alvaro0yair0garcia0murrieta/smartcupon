@@ -6,22 +6,21 @@
 package modelo.pojo;
 
 /**
- *
  * @author a-rac
  */
 public class Sucursal {
-	private Integer idSucursal; 
-	private String nombre; 
-	private String calle; 
-	private String numero; 
-	private String encargado; 
-	private String colonia; 
-	private String ciudad; 
-	private String telefono; 
-	private String codigoP; 
-	private String longitud; 
-	private String latitud; 
-	private Integer idEmpresa; 
+    private Integer idSucursal;
+    private String nombre;
+    private String calle;
+    private String numero;
+    private String encargado;
+    private String colonia;
+    private String ciudad;
+    private String telefono;
+    private String codigoP;
+    private String longitud;
+    private String latitud;
+    private Integer idEmpresa;
 
     public Sucursal() {
     }
@@ -121,8 +120,7 @@ public class Sucursal {
     public void setIdEmpresa(Integer idEmpresa) {
         this.idEmpresa = idEmpresa;
     }
-        
-        
+
 
 }
 

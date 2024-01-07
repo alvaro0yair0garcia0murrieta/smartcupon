@@ -10,6 +10,6 @@ package interfaces;
  * @author a-rac
  */
 public interface IRespuesta {
-      public void notificarGuardado();
+      void notificarGuardado();
     
 }

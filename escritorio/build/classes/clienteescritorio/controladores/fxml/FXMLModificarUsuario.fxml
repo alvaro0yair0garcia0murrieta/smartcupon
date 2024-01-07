@@ -17,6 +17,15 @@
       <TextField fx:id="apellidoMField" />
       <Label text="Curp" />
       <TextField fx:id="CurpField" />
+      <RadioButton fx:id="GeneralRadio" mnemonicParsing="false" text="General">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="roles" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="COMOERCIALRadio" mnemonicParsing="false" text="Comercial" toggleGroup="$roles" />
+      <Label text="Empresa: " />
+            <ComboBox fx:id="empresaCombo" prefWidth="150.0" />
+      
       <Label text="correo electronico" />
       <TextField fx:id="correoField" />
       <Label text="username" />

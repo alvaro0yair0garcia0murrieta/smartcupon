@@ -5,9 +5,6 @@
 package clienteescritorio.controladores;
 
 import interfaces.IRespuesta;
-import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -15,12 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import modelo.DAO.EmpresaDAO;
 import modelo.DAO.UsuarioDAO;
@@ -29,17 +21,21 @@ import modelo.pojo.Mensaje;
 import modelo.pojo.Usuario;
 import utiles.Utilidades;
 
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
 /**
  * FXML Controller class
  *
  * @author a-rac
  */
 public class FXMLRegistrarUsuarioController implements Initializable {
-private ObservableList<Empresa> empresas;
-String rol;
-  private int idEmpresa;
-  
-   private IRespuesta observador;
+    String rol;
+    private ObservableList<Empresa> empresas;
+    private int idEmpresa;
+
+    private IRespuesta observador;
     @FXML
     private ComboBox<Empresa> empresaCombo;
     @FXML
@@ -69,94 +65,94 @@ String rol;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cargarEmpresa();
-        roles.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
-            
+        roles.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+
             @Override
-            public void changed(ObservableValue<? extends Toggle> observable, 
-                    Toggle oldValue, Toggle newValue) {
-                if(GeneralRadio.isSelected()){
-                   empresaCombo.setDisable(true);
-                   rol ="GENERAL";
-                   
-                }else{
-                   empresaCombo.setDisable(false);
-                   rol="Comercial";
+            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                if (GeneralRadio.isSelected()) {
+                    empresaCombo.setDisable(true);
+                    rol = "GENERAL";
+
+                } else {
+                    empresaCombo.setDisable(false);
+                    rol = "COMERCIAL";
                 }
             }
 
-           
-            
+
         });
-    }    
-      private void cargarEmpresa() {
-     empresas =FXCollections.observableArrayList();
-        List<Empresa> info= EmpresaDAO.obtenerEmpresas();
+    }
+
+    private void cargarEmpresa() {
+        empresas = FXCollections.observableArrayList();
+        List<Empresa> info = EmpresaDAO.obtenerEmpresas();
         empresas.addAll(info);
         empresaCombo.setItems(empresas);
     }
 
     @FXML
     private void registrari(ActionEvent event) {
-       
+
         if (Utilidades.validarCorreo(correoField.getText())) {
             try {
-                 Usuario u= sacaDatos();
-                 registro(u);
+                Usuario u = sacaDatos();
+                registro(u);
             } catch (NullPointerException e) {
-                  Utilidades.alerta("error", "correo llene todos los campos", Alert.AlertType.ERROR);
+                Utilidades.alerta("error", "correo llene todos los campos", Alert.AlertType.ERROR);
             }
-            
-            
-        }else{
+
+
+        } else {
             Utilidades.alerta("error", "correo invalido", Alert.AlertType.ERROR);
         }
-        
-    }
-       private void registro(Usuario usuario){
-         
-Mensaje msj = UsuarioDAO.registro(usuario);
-if(!msj.getError()){
-    Utilidades.alerta("Usuario registrada", msj.getContenido(), Alert.AlertType.INFORMATION);
-    observador.notificarGuardado();
-    cerrarPantalla();
-}else{
-    Utilidades.alerta("error de registro", msj.getContenido(), Alert.AlertType.ERROR);
-}
 
-   }
-
-     private void cerrarPantalla(){
-        Stage stage =(Stage)nombreField.getScene().getWindow();
-        stage.close();
-        
     }
-     
-        
-        private Usuario sacaDatos(){
-            Usuario u= new Usuario();
-            u.setCurp(CurpField.getText());
-            u.setApellidoM(apellidoMField.getText());
-            u.setApellidoP(apellidoPField.getText());
-            u.setContrasena(contrasenafield.getText());
-            u.setCorreo(correoField.getText());
-           
-               
-            if (rol.equals("GENERAL")) {
-                u.setIdEmpresa(-2);
-            }else{
-                  Empresa empresa = empresas.get(empresaCombo.getSelectionModel().getSelectedIndex());
-            u.setIdEmpresa(empresa.getIdEmpresa());
-            }
-            
-            u.setNombre(nombreField.getText());
-            u.setUsername(usuarioField.getText());
-            u.setRol(rol);
-            
-                  return u;
+
+    private void registro(Usuario usuario) {
+
+        Mensaje msj = UsuarioDAO.registro(usuario);
+        if (!msj.getError()) {
+            Utilidades.alerta("Usuario registrada", msj.getContenido(), Alert.AlertType.INFORMATION);
+            observador.notificarGuardado();
+            cerrarPantalla();
+        } else {
+            Utilidades.alerta("error de registro", msj.getContenido(), Alert.AlertType.ERROR);
         }
 
-    public void init( IRespuesta observador) {
-    this.observador = observador;
     }
-        
+
+    private void cerrarPantalla() {
+        Stage stage = (Stage) nombreField.getScene().getWindow();
+        stage.close();
+
+    }
+
+
+    private Usuario sacaDatos() {
+        Usuario u = new Usuario();
+        u.setCurp(CurpField.getText());
+        u.setApellidoM(apellidoMField.getText());
+        u.setApellidoP(apellidoPField.getText());
+        u.setContrasena(contrasenafield.getText());
+        u.setCorreo(correoField.getText());
+
+
+        if (rol.equals("GENERAL")) {
+            u.setIdEmpresa(-2);
+        } else {
+            Empresa empresa = empresas.get(empresaCombo.getSelectionModel().getSelectedIndex());
+            u.setIdEmpresa(empresa.getIdEmpresa());
+        }
+
+        u.setNombre(nombreField.getText());
+        u.setUsername(usuarioField.getText());
+        u.setRol(rol);
+
+        return u;
+    }
+
+    public void init(IRespuesta observador) {
+        this.observador = observador;
+    }
+
 }
